@@ -13,7 +13,7 @@ class NewsController extends Controller
     public function index()
     {
         $news = News::all();
-        return view('about', compact('news'));
+        return view('news', compact('news'));
 
     }
 

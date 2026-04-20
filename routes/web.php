@@ -19,9 +19,11 @@ Route::get('/about', [SliderController::class, 'index'])->name('about');
 Route::get('/teachers', [TeacherController::class,'index'])->name('teachers');
 Route::get('/', [HomeSliderController::class,'index'])->name('home');
 Route::get('/dars', [GroupController::class, 'index'])->name('subject');
+Route::get('/dars/{group}', [GroupController::class, 'show'])->name('groups.show');
 Route::get('/photo', [VideoController::class, 'index'])->name('photo');
 Route::get('/achievements', [PhotocardController::class,'index'])->name('achievements');
 Route::get('/aloqa', [ContactController::class, 'index'])->name('contact');
+Route::get('/news', [NewsController::class, 'index'])->name('news');
 
 
 
