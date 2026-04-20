@@ -874,18 +874,65 @@
               <div class="swiper-wrapper">
                   @foreach($homes as $home)
                       <div class="swiper-slide">
-                          <div class="bg-white shadow-xl rounded-3xl p-6 text-center max-w-xs mx-auto hover:scale-105 transition-transform duration-300">
-                              <div class="w-28 h-28 mx-auto mb-4">
+                          <div class="staff-card relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-6 text-center max-w-xs mx-auto cursor-pointer transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl"
+                               data-name="{{ e($home->name) }}"
+                               data-role="{{ e($home->subject) }}"
+                               data-bio="{{ e($home->bio) }}"
+                               data-image="{{ asset('storage/' . $home->image) }}">
+                              <div class="w-28 h-28 mx-auto mb-4 overflow-hidden rounded-full border-4 border-blue-200 bg-blue-50">
                                   <img src="{{ asset('storage/' . $home->image) }}"
-                                       class="w-full h-full object-cover rounded-full border-4 border-blue-200"
-                                       alt="Teacher">
+                                       class="w-full h-full object-cover"
+                                       alt="{{ $home->name }}">
                               </div>
-                              <h4 class="text-xl font-semibold text-blue-900">{{$home->name}}</h4>
-                              <p class="text-blue-600 font-medium">{{$home->subject}}</p>
-                              <p class="text-gray-600 text-sm mt-2">{{$home->bio}}</p>
+                              <h4 class="text-xl font-semibold text-blue-900">{{ $home->name }}</h4>
+                              <p class="text-blue-600 font-medium">{{ $home->subject }}</p>
+                              <p class="text-gray-600 text-sm mt-2 line-clamp-3">{{ $home->bio }}</p>
                           </div>
                       </div>
                   @endforeach
+              </div>
+          </div>
+      </div>
+
+      <div id="staffModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/90 p-6">
+          <div class="relative w-full max-w-5xl overflow-hidden rounded-[2rem] bg-white shadow-2xl">
+              <button id="staffModalClose" class="absolute right-6 top-6 inline-flex h-12 w-12 items-center justify-center rounded-full bg-white text-slate-600 shadow-lg transition hover:bg-red-50 hover:text-red-600">
+                  <i class="fas fa-times text-2xl"></i>
+              </button>
+
+              <div class="md:flex">
+                  <div class="md:w-1/3 bg-gradient-to-b from-blue-50 to-white p-10 text-center">
+                      <div class="relative mx-auto mb-8 h-72 w-72 overflow-hidden rounded-[2rem] border border-slate-100 bg-white shadow-2xl">
+                          <img id="staffModalImage" src="" alt="Staff image" class="h-full w-full object-cover">
+                      </div>
+                      <h3 id="staffModalName" class="text-3xl font-black text-blue-900 leading-tight mb-3"></h3>
+                      <p id="staffModalRole" class="mx-auto inline-flex rounded-full bg-blue-600 px-6 py-3 text-sm uppercase tracking-[0.2em] text-white shadow-lg"></p>
+                      <div class="mt-10 inline-flex w-full items-center justify-center gap-3 rounded-2xl bg-yellow-400 px-8 py-4 text-sm font-black uppercase tracking-widest text-blue-900 shadow-xl transition hover:bg-yellow-500">
+                          <i class="fas fa-phone-alt text-xl"></i>
+                          Bog'lanish
+                      </div>
+                  </div>
+
+                  <div class="md:w-2/3 p-10 md:p-14">
+                      <div class="grid gap-4 sm:grid-cols-2 mb-10">
+                          <div class="rounded-3xl border border-blue-100 bg-blue-50 p-6 text-left">
+                              <p class="text-[10px] font-black uppercase tracking-widest text-blue-600 mb-2">Tajrib</p>
+                              <p class="text-lg font-bold text-blue-900">10+ yillik malaka</p>
+                          </div>
+                          <div class="rounded-3xl border border-yellow-100 bg-yellow-50 p-6 text-left">
+                              <p class="text-[10px] font-black uppercase tracking-widest text-yellow-600 mb-2">Tillar</p>
+                              <p class="text-lg font-bold text-blue-900">O'zbek, Rus</p>
+                          </div>
+                      </div>
+
+                      <h4 class="mb-6 text-2xl font-black text-blue-900 uppercase tracking-widest">Biografiya</h4>
+                      <p id="staffModalBio" class="text-gray-600 text-lg leading-relaxed"></p>
+
+                      <div class="mt-10 flex flex-wrap gap-3">
+                          <span class="rounded-full border border-slate-200 bg-slate-50 px-5 py-3 text-sm font-bold text-slate-700">Oliy ma'lumotli</span>
+                          <span class="rounded-full border border-slate-200 bg-slate-50 px-5 py-3 text-sm font-bold text-slate-700">Toifali mutaxassis</span>
+                      </div>
+                  </div>
               </div>
           </div>
       </div>
@@ -913,6 +960,36 @@
                   slidesPerView: 3
               }
           }
+      });
+
+      document.addEventListener('DOMContentLoaded', function () {
+          const staffCards = document.querySelectorAll('.staff-card');
+          const staffModal = document.getElementById('staffModal');
+          const staffModalClose = document.getElementById('staffModalClose');
+          const staffModalImage = document.getElementById('staffModalImage');
+          const staffModalName = document.getElementById('staffModalName');
+          const staffModalRole = document.getElementById('staffModalRole');
+          const staffModalBio = document.getElementById('staffModalBio');
+
+          staffCards.forEach(card => {
+              card.addEventListener('click', function () {
+                  staffModalImage.src = card.dataset.image;
+                  staffModalName.textContent = card.dataset.name;
+                  staffModalRole.textContent = card.dataset.role;
+                  staffModalBio.textContent = card.dataset.bio;
+                  staffModal.classList.remove('hidden');
+              });
+          });
+
+          staffModalClose.addEventListener('click', function () {
+              staffModal.classList.add('hidden');
+          });
+
+          staffModal.addEventListener('click', function (event) {
+              if (event.target === staffModal) {
+                  staffModal.classList.add('hidden');
+              }
+          });
       });
   </script>
 

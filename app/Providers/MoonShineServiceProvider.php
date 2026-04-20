@@ -25,6 +25,7 @@ use App\MoonShine\Resources\AboutStatic\AboutStaticResource;
 use App\MoonShine\Resources\TeacherStats\TeacherStatsResource;
 use App\MoonShine\Resources\ExamStats\ExamStatsResource;
 use App\MoonShine\Resources\Category\CategoryResource;
+use App\MoonShine\Resources\Child\ChildResource;
 
 class MoonShineServiceProvider extends ServiceProvider
 {
@@ -52,6 +53,7 @@ class MoonShineServiceProvider extends ServiceProvider
                 TeacherStatsResource::class,
                 ExamStatsResource::class,
                 CategoryResource::class,
+                ChildResource::class,
             ])
             ->pages([
                 ...$core->getConfig()->getPages(),

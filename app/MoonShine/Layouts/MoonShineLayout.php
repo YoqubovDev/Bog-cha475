@@ -27,6 +27,7 @@ use App\MoonShine\Resources\AboutStatic\AboutStaticResource;
 use App\MoonShine\Resources\TeacherStats\TeacherStatsResource;
 use App\MoonShine\Resources\ExamStats\ExamStatsResource;
 use App\MoonShine\Resources\Category\CategoryResource;
+use App\MoonShine\Resources\Child\ChildResource;
 
 final class MoonShineLayout extends AppLayout
 {
@@ -65,8 +66,8 @@ final class MoonShineLayout extends AppLayout
                 // MenuItem::make(TeacherStatsResource::class)->icon('presentation-chart-line'),
                 MenuItem::make(TeacherResource::class)->icon("user"),
                 MenuItem::make(GroupResource::class)->icon('user-group'),
+                MenuItem::make(ChildResource::class, 'Bolalar')->icon('user-group'),
 //                MenuItem::make(DepartmentsResource::class)->icon("building-office-2"),
-
 
             ])->icon("users"),
 

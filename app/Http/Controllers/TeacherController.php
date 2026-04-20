@@ -11,14 +11,15 @@ class TeacherController extends Controller
 {
     public function index()
     {
-        $teachers = Teacher::with(['group.assistant','group.students'])->get();
+        $teachers = Teacher::with(['primaryGroups.assistant', 'primaryGroups.children', 'category'])->get();
         $departments = Departments::all();
-        $stats = TeacherStats::first() ?? new TeacherStats([
+        $stats = TeacherStats::first() ?? (object) [
             'asosiy' => 0,
             'ilmiy' => 0,
-            'kutator' => 0,
+            'kurator' => 0,
             'tashqi' => 0,
-        ]);
+        ];
+
         return view('teachers', compact('teachers', 'departments', 'stats'));
     }
 }

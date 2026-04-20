@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Group extends Model
@@ -11,9 +12,9 @@ class Group extends Model
     protected $fillable = [
         'name',
         'language',
-        'direction',
+        'bio',
         'image',
-        'group_image',
+        'group_number',
         'result_percentage',
         'teacher_id',
         'assistant_id',

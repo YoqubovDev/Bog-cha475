@@ -2,26 +2,25 @@
 
 declare(strict_types=1);
 
-namespace App\MoonShine\Resources\Group\Pages;
+namespace App\MoonShine\Resources\Child\Pages;
 
 use MoonShine\Laravel\Pages\Crud\DetailPage;
 use MoonShine\Contracts\UI\ComponentContract;
-use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 use MoonShine\UI\Components\Table\TableBuilder;
 use MoonShine\Contracts\UI\FieldContract;
-use App\MoonShine\Resources\Group\GroupResource;
+use App\MoonShine\Resources\Child\ChildResource;
 use MoonShine\Support\ListOf;
 use MoonShine\UI\Fields\ID;
-use MoonShine\UI\Fields\Image;
-use MoonShine\UI\Fields\Number;
 use MoonShine\UI\Fields\Text;
+use MoonShine\UI\Fields\Image;
+use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 use Throwable;
 
 
 /**
- * @extends DetailPage<GroupResource>
+ * @extends DetailPage<ChildResource>
  */
-class GroupDetailPage extends DetailPage
+class ChildDetailPage extends DetailPage
 {
     /**
      * @return list<FieldContract>
@@ -30,15 +29,9 @@ class GroupDetailPage extends DetailPage
     {
         return [
             ID::make(),
-            Text::make('Nomi', 'name'),
-            Text::make('Til' ,'language')->required(),
-            Number::make('Natija foizi', 'result_percentage')->nullable(),
-            Text::make('Oquvchi soni' ,'schedule_image'),
-            Image::make('Guruh Rasmi ', 'image')
-                ->allowedExtensions(['jpg', 'jpeg', 'png', 'webp']),
-            BelongsTo::make('Tarbiyalovchi', 'teacher', 'name', \App\MoonShine\Resources\Teacher\TeacherResource::class),
-            BelongsTo::make('Yordamchi tarbiyachi', 'assistant', 'name', \App\MoonShine\Resources\Teacher\TeacherResource::class)->nullable(),
-            \MoonShine\Laravel\Fields\Relationships\HasMany::make('Tarbiylanuvchilar', 'children', null, \App\MoonShine\Resources\Child\ChildResource::class),
+            Text::make('F.I.SH', 'name'),
+            Image::make('Rasm', 'image')->dir('children'),
+            BelongsTo::make('Guruh', 'group', 'name', \App\MoonShine\Resources\Group\GroupResource::class)
         ];
     }
 

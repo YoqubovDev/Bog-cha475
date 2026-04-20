@@ -11,14 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('groups', function (Blueprint $table) {
+        Schema::create('children', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('language');
-            $table->integer('group_number');
-            $table->text('bio')->nullable();
             $table->string('image')->nullable();
-            $table->integer('result_percentage')->nullable();
+            $table->foreignId('group_id')->nullable()->constrained()->nullOnDelete();
             $table->timestamps();
         });
     }
@@ -28,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('groups');
+        Schema::dropIfExists('children');
     }
 };
