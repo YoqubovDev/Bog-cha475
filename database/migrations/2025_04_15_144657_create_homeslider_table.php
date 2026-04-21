@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('home_sliders', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('subject');
+            $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
             $table->string('image')->nullable();
             $table->text('bio')->nullable();
             $table->timestamps();

@@ -679,10 +679,10 @@
               <nav id="mainNav">
                   <ul>
                       <li><a href="{{route('home')}}">Home</a></li>
-                      <li><a href="{{route('about')}}">Maktab haqida</a></li>
-                      <!-- <li><a href="{{route('photo')}}">Yangiliklar</a></li> -->
-                      <li><a href="{{route('teachers')}}">O'qituvchilar</a></li>
-                      <li><a href="{{route('subject')}}">Dars jarayonlari</a></li>
+                      <!-- <li><a href="{{route('about')}}">Maktab haqida</a></li> -->
+                      <li><a href="{{route('photo')}}">Yangiliklar</a></li>
+                      <li><a href="{{route('teachers')}}">Tarbiyachilar</a></li>
+                      <li><a href="{{route('subject')}}">Guruhlar</a></li>
                       <li><a href="{{route('achievements')}}">Yutuqlar</a></li>
                       <li><a href="{{route('contact')}}">Aloqa</a></li>
                   </ul>

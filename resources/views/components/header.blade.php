@@ -761,10 +761,10 @@
                 <nav id="mainNav">
                     <ul>
                         <li><a href="{{route('home')}}">Bosh sahifa</a></li>
-                        <li><a href="{{route('about')}}">Biz haqimizda</a></li>
+                        <!-- <li><a href="{{route('about')}}">Biz haqimizda</a></li> -->
                         <li><a href="{{route('news')}}">Yangiliklar</a></li>
-                        <li><a href="{{route('teachers')}}">Ustozlar</a></li>
-                        <li><a href="{{route('subject')}}">Darslar</a></li>
+                        <li><a href="{{route('teachers')}}">Tarbiyachilar</a></li>
+                        <li><a href="{{route('subject')}}">Guruhlar</a></li>
                         <li><a href="{{route('achievements')}}">Yutuqlar</a></li>
                         <li><a href="{{route('contact')}}">Bog'lanish</a></li>
                     </ul>

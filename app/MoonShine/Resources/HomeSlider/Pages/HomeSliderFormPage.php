@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\MoonShine\Resources\HomeSlider\Pages;
 
+use App\MoonShine\Resources\Category\CategoryResource;
+use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 use MoonShine\Laravel\Pages\Crud\FormPage;
 use MoonShine\Contracts\UI\ComponentContract;
 use MoonShine\Contracts\UI\FormBuilderContract;
@@ -33,13 +35,14 @@ class HomeSliderFormPage extends FormPage
         return [
             Box::make([
                 ID::make(),
+                BelongsTo::make('Kategoriya', 'category', 'category', CategoryResource::class)
+                    ->required(),
                 Text::make('Ism', 'name')->required(),
-                Text::make('Fan', 'subject')->required(),
+                Textarea::make('Bio', 'bio')->nullable(),
                 Image::make('Rasm', 'image')
                     ->dir('homeslider') // storage/app/public/homeslider
                     ->disk('public')
                     ->allowedExtensions(['jpg', 'jpeg', 'png', 'webp']),
-                Textarea::make('Bio', 'bio')->nullable(),
             ]),
         ];
     }

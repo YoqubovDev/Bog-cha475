@@ -18,4 +18,8 @@ class Category extends Model
     {
         return $this->hasMany(Teacher::class, 'category_id');
     }
+    public function home(): HasMany
+    {
+        return $this->hasMany(HomeSlider::class, 'category_id');
+    }
 }

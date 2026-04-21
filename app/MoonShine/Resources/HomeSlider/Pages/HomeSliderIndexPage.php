@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\MoonShine\Resources\HomeSlider\Pages;
 
+use App\MoonShine\Resources\Category\CategoryResource;
+use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 use MoonShine\Laravel\Pages\Crud\IndexPage;
 use MoonShine\Contracts\UI\ComponentContract;
 use MoonShine\UI\Components\Table\TableBuilder;
@@ -33,8 +35,10 @@ class HomeSliderIndexPage extends IndexPage
         return [
             ID::make()->sortable(),
             Text::make('Ism', 'name'),
-            Text::make('Fan', 'subject'),
             Image::make('Rasm', 'image'),
+            Text::make('Bio', 'bio'),
+            BelongsTo::make('Kategoriya', 'category', 'category', CategoryResource::class),
+
         ];
     }
 

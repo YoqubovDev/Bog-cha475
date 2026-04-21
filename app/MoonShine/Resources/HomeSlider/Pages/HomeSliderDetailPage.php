@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\MoonShine\Resources\HomeSlider\Pages;
 
+use App\MoonShine\Resources\Category\CategoryResource;
+use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 use MoonShine\Laravel\Pages\Crud\DetailPage;
 use MoonShine\Contracts\UI\ComponentContract;
 use MoonShine\UI\Components\Table\TableBuilder;
@@ -29,8 +31,8 @@ class HomeSliderDetailPage extends DetailPage
     {
         return [
             ID::make(),
+            BelongsTo::make('Kategoriya', 'category', 'category', CategoryResource::class),
             Text::make('Ism', 'name'),
-            Text::make('Fan', 'subject'),
             Image::make('Rasm', 'image'),
             Textarea::make('Bio', 'bio'),
         ];
