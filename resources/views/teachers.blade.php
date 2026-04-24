@@ -1,105 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sevinch - 475-chi sonli bolalar bog`chasi</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'unipix-blue': '#161179',
-                        'unipix-light': '#2a2a9e',
-                        'unipix-dark': '#0c0950',
-                        'turin-green': '#16A34A',
-                        'turin-dark': '#003366',
-                    },
-                    fontFamily: {
-                        'serif': ['Playfair Display', 'serif'],
-                        'sans': ['Poppins', 'sans-serif'],
-                    },
-                    boxShadow: {
-                        'elegant': '0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-        }
-        .hero-text-shadow {
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-        .gradient-overlay {
-            background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(22,17,121,0.7) 100%);
-        }
-        .btn-glow:hover {
-            box-shadow: 0 0 15px rgba(22, 17, 121, 0.6);
-        }
-        .nav-indicator::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 3px;
-            background-color: #161179;
-            transition: width 0.3s ease;
-        }
-        .nav-indicator:hover::after {
-            width: 70%;
-        }
-        .active-nav::after {
-            width: 70%;
-        }
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 6px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 10px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
-            border-radius: 10px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-            background: #94a3b8;
-        }
-    </style>
-</head>
-<body class="font-sans bg-gray-50" x-data="{ 
-    showModal: false, 
-    selectedTeacher: null, 
-    zoomImage: false,
-    showGroup: false,
-    zoomedImageSrc: ''
-}">
-    <x-header></x-header>
-
-    <section class="py-16 bg-gradient-to-br from-unipix-dark via-blue-900 to-unipix-blue relative overflow-hidden">
+<x-layout>
+    <x-slot:title>Tarbiyachilar - Sevinch 475</x-slot:title>
+    
+    <section class="py-20 bg-gradient-to-br from-unipix-dark via-blue-900 to-unipix-blue relative overflow-hidden">
         <div class="absolute inset-0 opacity-10">
             <div class="absolute top-0 left-0 w-64 h-64 bg-white rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
             <div class="absolute bottom-0 right-0 w-96 h-96 bg-unipix-light rounded-full translate-x-1/2 translate-y-1/2 blur-3xl"></div>
         </div>
         <div class="container mx-auto px-4 text-center relative z-10">
-            <div class="text-center mb-10">
-                <h2 class="text-5xl md:text-6xl font-serif font-bold text-white mb-6 uppercase tracking-widest drop-shadow-lg">Bizning Ustozlarimiz</h2>
-                <div class="w-40 h-1.5 bg-yellow-400 mx-auto mb-8 rounded-full shadow-lg"></div>
-                <p class="text-blue-100 max-w-2xl mx-auto text-xl leading-relaxed font-light">Sevinch 475 bolalar bog'chasining tajribali va mehribon pedagoglari bilan tanishing. Har bir ustoz bolalarning individual rivojlanishiga e'tibor beradi.</p>
-            </div>
+            <h2 class="text-5xl md:text-6xl font-serif font-bold text-white mb-6 uppercase tracking-widest drop-shadow-lg">Bizning Ustozlarimiz</h2>
+            <div class="w-40 h-1.5 bg-yellow-400 mx-auto mb-8 rounded-full shadow-lg"></div>
+            <p class="text-blue-100 max-w-2xl mx-auto text-xl leading-relaxed font-light">Sevinch 475 bolalar bog'chasining tajribali va mehribon pedagoglari bilan tanishing.</p>
         </div>
     </section>
 
-    <section class="py-24 bg-white">
+    <section class="py-20 bg-white" x-data="{ 
+        showModal: false, 
+        selectedTeacher: null, 
+        zoomImage: false,
+        showGroup: false,
+        zoomedImageSrc: ''
+    }">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
                 @foreach($teachers as $teacher)
@@ -131,7 +51,6 @@
                 @endforeach
             </div>
         </div>
-    </section>
 
     <div x-show="showModal" 
          class="fixed inset-0 z-[100] overflow-y-auto"
@@ -278,52 +197,18 @@
         </div>
     </div>
 
-    <div x-show="zoomImage" 
-         class="fixed inset-0 z-[120] bg-black/95 flex items-center justify-center p-6"
-         x-transition:enter="transition opacity duration-300"
-         @click="zoomImage = false"
-         x-cloak>
-        <div class="absolute top-8 right-8 text-white text-4xl cursor-pointer hover:text-red-500 transition-colors">
-            <i class="fas fa-times"></i>
-        </div>
-        <img :src="zoomedImageSrc" class="max-w-full max-h-full object-contain rounded-lg shadow-2xl">
-    </div>
-
-    <section class="py-24 bg-gradient-to-b from-gray-50 to-gray-100">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-10">
-                <div class="bg-white p-10 rounded-3xl shadow-xl hover:shadow-2xl transition-all border border-gray-100 text-center">
-                    <div class="w-20 h-20 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-inner">
-                        <i class="fas fa-user-tie text-3xl"></i>
-                    </div>
-                    <div class="text-5xl font-black text-blue-900 mb-2">{{ $stats->asosiy ?? 0 }}+</div>
-                    <div class="text-gray-400 font-black uppercase tracking-widest text-[10px]">Asosiy O‘qituvchi</div>
-                </div>
-                <div class="bg-white p-10 rounded-3xl shadow-xl hover:shadow-2xl transition-all border border-gray-100 text-center">
-                    <div class="w-20 h-20 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-inner">
-                        <i class="fas fa-certificate text-3xl"></i>
-                    </div>
-                    <div class="text-5xl font-black text-blue-900 mb-2">{{ $stats->ilmiy ?? 0 }}+</div>
-                    <div class="text-gray-400 font-black uppercase tracking-widest text-[10px]">Ilmiy darajasi bor o‘qituvchilar</div>
-                </div>
-                <div class="bg-white p-10 rounded-3xl shadow-xl hover:shadow-2xl transition-all border border-gray-100 text-center">
-                    <div class="w-20 h-20 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-inner">
-                        <i class="fas fa-chalkboard-teacher text-3xl"></i>
-                    </div>
-                    <div class="text-5xl font-black text-blue-900 mb-2">{{ $stats->kutator ?? 0 }}+</div>
-                    <div class="text-gray-400 font-black uppercase tracking-widest text-[10px]">Kurator o‘qituvchi</div>
-                </div>
-                <div class="bg-white p-10 rounded-3xl shadow-xl hover:shadow-2xl transition-all border border-gray-100 text-center">
-                    <div class="w-20 h-20 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-inner">
-                        <i class="fas fa-globe text-3xl"></i>
-                    </div>
-                    <div class="text-5xl font-black text-blue-900 mb-2">{{ $stats->tashqi ?? 0 }}</div>
-                    <div class="text-gray-400 font-black uppercase tracking-widest text-[10px]">Tashqi o‘rindosh o‘qituvchilar</div>
-                </div>
+            <!-- Image Zoom Component -->
+            <div x-show="zoomImage" 
+                 class="fixed inset-0 z-[3000] flex items-center justify-center p-4 bg-slate-950/98 backdrop-blur-2xl"
+                 x-transition:enter="transition ease-out duration-300"
+                 x-transition:enter-start="opacity-0 scale-110"
+                 x-transition:enter-end="opacity-100 scale-100"
+                 @click="zoomImage = false">
+                <button class="absolute top-10 right-10 text-white hover:text-yellow-400 transition-colors">
+                    <i class="fas fa-times text-5xl"></i>
+                </button>
+                <img :src="zoomedImageSrc" class="max-w-full max-h-full rounded-2xl shadow-[0_0_100px_rgba(255,255,255,0.1)]">
             </div>
         </div>
     </section>
-
-    <x-footer></x-footer>
-</body>
-</html>
+</x-layout>

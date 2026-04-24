@@ -14,7 +14,9 @@ use MoonShine\UI\Fields\Date;
 use MoonShine\UI\Fields\ID;
 use App\MoonShine\Resources\News\NewsResource;
 use MoonShine\Support\ListOf;
+use MoonShine\UI\Fields\Image;
 use MoonShine\UI\Fields\Number;
+
 use MoonShine\UI\Fields\Text;
 use Throwable;
 
@@ -34,9 +36,10 @@ class NewsIndexPage extends IndexPage
         return [
             ID::make()->sortable(),
             Text::make('Sarlavha', 'title')->required(),
-            Text::make('Fan nomi', 'subjects')->nullable(),
-            Number::make('Talabalar soni', 'student_count')->nullable(),
-            Text::make('Davomiyligi', 'duration')->nullable(),
+            Image::make('Rasm', 'image')
+                ->disk('public')
+                ->dir('news')
+                ->nullable(),
             Date::make('Chop etilgan vaqt', 'published_at')->format('Y-m-d H:i')->nullable(),
         ];
     }

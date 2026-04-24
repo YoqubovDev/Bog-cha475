@@ -15,7 +15,8 @@ use MoonShine\UI\Fields\Number;
 use MoonShine\UI\Fields\Text;
 use MoonShine\UI\Fields\Img;
 use MoonShine\UI\Fields\Textarea;
-use Nette\Utils\Image;
+use MoonShine\UI\Fields\Image;
+
 use Throwable;
 
 

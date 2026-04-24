@@ -20,7 +20,7 @@ class ReceptionResource extends ModelResource
 {
     protected string $model = Reception::class;
 
-    protected string $title = 'Qabul rasmlari';
+    protected string $title = "Bog'cha hududi";
 
     /**
      * @return list<class-string<PageContract>>

@@ -35,7 +35,11 @@ class TeacherIndexPage extends IndexPage
     {
         return [
             ID::make()->sortable(),
-            Image::make('Rasm', 'image'),
+            Image::make('Rasm', 'image')
+                ->disk('public')
+                ->dir('teachers')
+                ->nullable(),
+
             Text::make('Ism', 'name'),
             // Kategoriya: Tarbiyachi yoki Yordam tarbiyachi
             BelongsTo::make('Kategoriya', 'category', 'category', CategoryResource::class),

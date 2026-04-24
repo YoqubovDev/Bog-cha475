@@ -1,125 +1,78 @@
-<footer id="contact" class="bg-gradient-to-b from-turin-dark to-gray-900 text-white py-16">
-    <!-- Top Footer Section with Logo and Quick Info -->
-    <div class="container mx-auto px-6 mb-10">
-        <div class="flex flex-col md:flex-row items-center justify-between border-b border-gray-700 pb-10">
-            <!-- Logo Section -->
-            <div class="flex items-center mb-6 md:mb-0">
-                <div class="mr-6">
-                    <div class="w-16 h-16 rounded-full border-2 border-white flex items-center justify-center bg-white">
-                        <img src="/image/sevinch-logo.png" alt="Sevinch Logo" class="w-14 h-14">
-                    </div>
-                </div>
-                <div>
-                    <div class="text-3xl font-serif font-bold text-white">Sevinch</div>
-                    <div class="text-sm tracking-widest text-gray-300">475-chi bolalar bog'chasi</div>
-                </div>
-            </div>
-
-            <!-- Quick Contact -->
-            <div class="flex flex-wrap justify-center gap-6">
-                <div class="flex items-center bg-white bg-opacity-10 rounded-lg px-4 py-3">
-                    <div class="bg-unipix-light p-2 rounded-full mr-3">
-                        <i class="fas fa-phone-alt text-white"></i>
+<footer class="bg-[#0b2b4e] text-white pt-20 pb-10 mt-auto border-t border-white/5">
+    <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+            <!-- Brand Column -->
+            <div class="space-y-6">
+                <div class="flex items-center gap-4">
+                    <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center p-2 shadow-xl">
+                        <img src="/image/sevinch-logo.png" alt="Sevinch Logo" class="w-full h-full object-contain">
                     </div>
                     <div>
-                        <div class="text-gray-400 text-xs">Telefon</div>
-                        <a href="tel:+13125550123" class="text-white hover:text-unipix-light transition-colors duration-300">(+998) 91-004-07-85</a>
+                        <h3 class="text-2xl font-bold text-white">Sevinch</h3>
+                        <p class="text-blue-200 text-xs uppercase tracking-widest font-semibold">475-chi bolalar bog'chasi</p>
                     </div>
                 </div>
-
-                <div class="flex items-center bg-white bg-opacity-10 rounded-lg px-4 py-3">
-                    <div class="bg-unipix-light p-2 rounded-full mr-3">
-                        <i class="fas fa-envelope text-white"></i>
-                    </div>
-                    <div>
-                        <div class="text-gray-400 text-xs">Email</div>
-                        <a href="mailto:info@sevinch475.uz" class="text-white hover:text-unipix-light transition-colors duration-300">info@sevinch475.uz</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Main Footer Content -->
-    <div class="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 px-6">
-        <!-- Column 1 - About -->
-        <div>
-            <h3 class="text-xl font-bold mb-6 relative">
-                <span class="bg-unipix-light h-1 w-8 absolute -bottom-2 left-0"></span>
-                Sevinch 475 haqida
-            </h3>
-            <p class="text-gray-300 mb-6 leading-relaxed">
-                Sevinch - 475-chi sonli bolalar bog'chasi nufuzli ta'lim muassasasi bo'lib, zamonaviy ta'lim va innovatsion yondashuvlarga asoslangan.
-            </p>
-            <div class="flex space-x-3 mt-4">
-                <a href="#" class="w-10 h-10 rounded-full bg-white bg-opacity-10 flex items-center justify-center hover:bg-unipix-light transition-colors duration-300">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="#" class="w-10 h-10 rounded-full bg-white bg-opacity-10 flex items-center justify-center hover:bg-unipix-light transition-colors duration-300">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="#" class="w-10 h-10 rounded-full bg-white bg-opacity-10 flex items-center justify-center hover:bg-unipix-light transition-colors duration-300">
-                    <i class="fab fa-youtube"></i>
-                </a>
-                <a href="#" class="w-10 h-10 rounded-full bg-white bg-opacity-10 flex items-center justify-center hover:bg-unipix-light transition-colors duration-300">
-                    <i class="fab fa-twitter"></i>
-                </a>
-            </div>
-        </div>
-
-        <!-- Column 3 - Our Programs -->
-        <div>
-            <h3 class="text-xl font-bold mb-6 relative">
-                <span class="bg-unipix-light h-1 w-8 absolute -bottom-2 left-0"></span>
-                Ta'lim yo'nalishlari
-            </h3>
-            <ul class="space-y-3">
-                <li>
-                    <a href="#" class="flex items-center text-gray-300 hover:text-white transition-colors duration-300 group">
-                        <span class="w-2 h-2 bg-unipix-light rounded-full mr-3 group-hover:w-3 transition-all duration-300"></span>
-                        Kompyuter texnologiyalari va muhandislik
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="flex items-center text-gray-300 hover:text-white transition-colors duration-300 group">
-                        <span class="w-2 h-2 bg-unipix-light rounded-full mr-3 group-hover:w-3 transition-all duration-300"></span>
-                        Iqtisodiyot va tabiy fanlar
-                    </a>
-                </li>
-            </ul>
-        </div>
-
-        <!-- Column 4 - Newsletter Signup -->
-        <div>
-            <h3 class="text-xl font-bold mb-6 relative">
-                <span class="bg-unipix-light h-1 w-8 absolute -bottom-2 left-0"></span>
-                Aloqada qoling
-            </h3>
-            <p class="text-gray-300 mb-6">
-                 Sevinch - 475-chi sonli bolalar bog'chasi haqida yangiliklar, tadbirlar va e’lonnardan xabardor bo‘lish uchun obuna bo‘ling.
-            </p>
-            <div class="flex justify-between items-center">
-                <p class="text-gray-400 text-sm">
-                    <i class="fas fa-headset mr-2 text-unipix-light"></i> Yordam xizmati: 24/7 faol
+                <p class="text-blue-100/70 leading-relaxed font-light italic">
+                    Kelajak avlodni tarbiyalashda innovatsion yondashuv va mehribon ustozlar bilan birgamiz.
                 </p>
-                <a href="tel:+998712462331" class="bg-unipix-light text-white px-4 py-2 rounded-lg hover:bg-unipix-blue transition-colors duration-300">
-                    Bog‘lanish
-                </a>
+                <div class="flex gap-4">
+                    <a href="#" class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center hover:bg-yellow-400 hover:text-blue-900 transition-all duration-300"><i class="fab fa-telegram-plane"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center hover:bg-yellow-400 hover:text-blue-900 transition-all duration-300"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center hover:bg-yellow-400 hover:text-blue-900 transition-all duration-300"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h4 class="text-xl font-bold mb-6 flex items-center gap-3">
+                    <span class="w-2 h-6 bg-yellow-400 rounded-full"></span>
+                    Tezkor havolalar
+                </h4>
+                <ul class="space-y-4">
+                    <li><a href="{{ route('home') }}" class="text-blue-100/70 hover:text-yellow-400 transition-colors flex items-center gap-2 group"><i class="fas fa-chevron-right text-[10px] opacity-0 group-hover:opacity-100 transition-all"></i> Bosh sahifa</a></li>
+                    <li><a href="{{ route('news') }}" class="text-blue-100/70 hover:text-yellow-400 transition-colors flex items-center gap-2 group"><i class="fas fa-chevron-right text-[10px] opacity-0 group-hover:opacity-100 transition-all"></i> Yangiliklar</a></li>
+                    <li><a href="{{ route('teachers') }}" class="text-blue-100/70 hover:text-yellow-400 transition-colors flex items-center gap-2 group"><i class="fas fa-chevron-right text-[10px] opacity-0 group-hover:opacity-100 transition-all"></i> Tarbiyachilar</a></li>
+                    <li><a href="{{ route('contact') }}" class="text-blue-100/70 hover:text-yellow-400 transition-colors flex items-center gap-2 group"><i class="fas fa-chevron-right text-[10px] opacity-0 group-hover:opacity-100 transition-all"></i> Bog'lanish</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="lg:col-span-2">
+                <h4 class="text-xl font-bold mb-6 flex items-center gap-3">
+                    <span class="w-2 h-6 bg-yellow-400 rounded-full"></span>
+                    Biz bilan bog'lanish
+                </h4>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-yellow-400/30 transition-colors">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-10 h-10 bg-yellow-400 text-blue-900 rounded-xl flex items-center justify-center shadow-lg shadow-yellow-400/20">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <span class="text-sm font-bold uppercase tracking-widest text-blue-200">Telefon</span>
+                        </div>
+                        <a href="tel:+998910040785" class="text-xl font-bold hover:text-yellow-400 transition-colors">+998 91 004 07 85</a>
+                    </div>
+                    <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-yellow-400/30 transition-colors">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-10 h-10 bg-white text-blue-900 rounded-xl flex items-center justify-center shadow-lg">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <span class="text-sm font-bold uppercase tracking-widest text-blue-200">Email Manzil</span>
+                        </div>
+                        <a href="mailto:info@sevinch475.uz" class="text-lg font-bold hover:text-yellow-400 transition-colors break-all">info@sevinch475.uz</a>
+                    </div>
+                </div>
             </div>
         </div>
 
-    </div>
-
-    <!-- Bottom Footer -->
-    <div class="container mx-auto mt-12 pt-6 border-t border-gray-800 px-6">
-        <div class="flex flex-col md:flex-row justify-between items-center">
-            <p class="text-gray-400 mb-4 md:mb-0">
-                © 2025 Sevinch - 475-chi sonli bolalar bog'chasi. Barcha huquqlar himoyalangan.
+        <div class="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+            <p class="text-blue-100/40 text-sm font-medium">
+                © {{ date('Y') }} Sevinch 475. Barcha huquqlar himoyalangan.
             </p>
-            <div class="flex space-x-6">
-                <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300 text-sm">Maxfiylik siyosati</a>
-                <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300 text-sm">Foydalanish shartlari</a>
-                <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300 text-sm">Cookie siyosati</a>
+            <div class="flex gap-8 text-blue-100/40 text-xs font-bold uppercase tracking-[0.2em]">
+                <a href="#" class="hover:text-yellow-400 transition-colors">Siyosat</a>
+                <a href="#" class="hover:text-yellow-400 transition-colors">Foydalanish</a>
+                <a href="#" class="hover:text-yellow-400 transition-colors">Xarita</a>
             </div>
         </div>
     </div>

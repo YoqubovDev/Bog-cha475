@@ -63,9 +63,13 @@ final class MoonShineLayout extends AppLayout
                 MenuItem::make(TeacherResource::class)->icon("user"),
                 MenuItem::make(GroupResource::class)->icon('user-group'),
                 MenuItem::make(ChildResource::class, 'Bolalar')->icon('user-group'),
+
 //                MenuItem::make(DepartmentsResource::class)->icon("building-office-2"),
 
             ])->icon("users"),
+
+            MenuItem::make(NewsResource::class, 'Yangiliklar')->icon('newspaper'),
+
 
 
             MenuItem::make(AchievementResource::class)->icon('trophy'),
