@@ -77,7 +77,7 @@ class Dashboard extends Page
             Grid::make([
                 Column::make([
                     ValueMetric::make('Jami O\'qituvchilar')
-                        ->value($totalTeachers)
+                        ->value((int) $totalTeachers)
                         ->icon('users'),
                 ])->columnSpan(12, 6, 3),
 
