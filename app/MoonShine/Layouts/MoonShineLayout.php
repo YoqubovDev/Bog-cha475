@@ -28,6 +28,8 @@ use App\MoonShine\Resources\TeacherStats\TeacherStatsResource;
 use App\MoonShine\Resources\ExamStats\ExamStatsResource;
 use App\MoonShine\Resources\Category\CategoryResource;
 use App\MoonShine\Resources\Child\ChildResource;
+use App\MoonShine\Resources\Job\JobResource;
+use App\MoonShine\Resources\JobApplication\JobApplicationResource;
 
 final class MoonShineLayout extends AppLayout
 {
@@ -75,6 +77,12 @@ final class MoonShineLayout extends AppLayout
             MenuItem::make(AchievementResource::class)->icon('trophy'),
             MenuItem::make(ContactResource::class)->icon('phone'),
 
+            MenuGroup::make("Ish joylari", [
+                MenuItem::make(JobResource::class)->icon("briefcase"),
+                MenuItem::make(JobApplicationResource::class)->icon('user-group')   ,
+               
+            ])->icon("briefcase"),
+            
 
 
             MenuGroup::make("Jarayonda ..... ", [
@@ -82,7 +90,7 @@ final class MoonShineLayout extends AppLayout
                 MenuItem::make(SliderResource::class),
 
             ])->icon("wrench-screwdriver"),
-            
+
         ];
     }
 

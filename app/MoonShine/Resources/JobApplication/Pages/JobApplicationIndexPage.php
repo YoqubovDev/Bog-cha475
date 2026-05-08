@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\MoonShine\Resources\News\Pages;
+namespace App\MoonShine\Resources\JobApplication\Pages;
 
 use MoonShine\Laravel\Pages\Crud\IndexPage;
 use MoonShine\Contracts\UI\ComponentContract;
@@ -10,21 +10,17 @@ use MoonShine\UI\Components\Table\TableBuilder;
 use MoonShine\Contracts\UI\FieldContract;
 use MoonShine\Laravel\QueryTags\QueryTag;
 use MoonShine\UI\Components\Metrics\Wrapped\Metric;
-use MoonShine\UI\Fields\Date;
 use MoonShine\UI\Fields\ID;
-use App\MoonShine\Resources\News\NewsResource;
+use App\MoonShine\Resources\JobApplication\JobApplicationResource;
 use MoonShine\Support\ListOf;
-use MoonShine\UI\Fields\Image;
-use MoonShine\UI\Fields\Number;
-
 use MoonShine\UI\Fields\Text;
 use Throwable;
 
 
 /**
- * @extends IndexPage<NewsResource>
+ * @extends IndexPage<JobApplicationResource>
  */
-class NewsIndexPage extends IndexPage
+class JobApplicationIndexPage extends IndexPage
 {
     protected bool $isLazy = true;
 
@@ -34,16 +30,16 @@ class NewsIndexPage extends IndexPage
     protected function fields(): iterable
     {
         return [
-            ID::make()->sortable(),
-            Text::make('Sarlavha', 'title')->required(),
-            Image::make('Rasm', 'image')
-                ->disk('public')
-                ->dir('news')
-                ->nullable(),
-            Date::make('Sanasi', 'published_at')->format('Y-m-d H:i')->nullable(),
+            ID::make(),
+            Text::make('F.I.SH', 'name')->required(),
+            Text::make('Telefon', 'phone')->required(),
+            Text::make('Vakansiya', 'job_title')->required(),
         ];
     }
 
+    /**
+     * @return ListOf<ActionButtonContract>
+     */
     protected function buttons(): ListOf
     {
         return parent::buttons();

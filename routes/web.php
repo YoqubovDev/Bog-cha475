@@ -11,6 +11,7 @@ use App\Http\Controllers\VideoController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DepartmentsController;
 use App\Http\Controllers\AchievementController;
+use App\Http\Controllers\JobController;
 
 
 use Illuminate\Support\Facades\Route;
@@ -24,6 +25,8 @@ Route::get('/photo', [VideoController::class, 'index'])->name('photo');
 Route::get('/achievements', [PhotocardController::class,'index'])->name('achievements');
 Route::get('/aloqa', [ContactController::class, 'index'])->name('contact');
 Route::get('/news', [NewsController::class, 'index'])->name('news');
+Route::get('/jobs', [JobController::class, 'index'])->name('jobs');
+Route::post('/jobs', [JobController::class, 'store'])->name('jobs.store');
 
 
 

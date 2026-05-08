@@ -22,6 +22,7 @@
                     <li><a href="{{ route('subject') }}" class="text-white hover:text-yellow-400 font-semibold transition-all relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-yellow-400 hover:after:w-full after:transition-all">Guruhlar</a></li>
                     <li><a href="{{ route('achievements') }}" class="text-white hover:text-yellow-400 font-semibold transition-all relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-yellow-400 hover:after:w-full after:transition-all">Yutuqlar</a></li>
                     <li><a href="{{ route('contact') }}" class="text-white hover:text-yellow-400 font-semibold transition-all relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-yellow-400 hover:after:w-full after:transition-all">Bog'lanish</a></li>
+                    <li><a href="{{ route('jobs') }}" class="text-white hover:text-yellow-400 font-semibold transition-all relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-yellow-400 hover:after:w-full after:transition-all">Vakansiyalar</a></li>
                 </ul>
             </nav>
 
@@ -47,6 +48,7 @@
                 <li><a href="{{ route('subject') }}" class="mobile-nav-link">Guruhlar</a></li>
                 <li><a href="{{ route('achievements') }}" class="mobile-nav-link">Yutuqlar</a></li>
                 <li><a href="{{ route('contact') }}" class="mobile-nav-link">Bog'lanish</a></li>
+                <li><a href="{{ route('jobs') }}" class="mobile-nav-link">Bo'sh ish o'rinlari</a></li>
             </ul>
             <div class="mt-12 pt-8 border-t border-white/10 text-center">
                 <p class="text-blue-200 text-sm mb-4 italic">Biz bilan bog'lanish:</p>

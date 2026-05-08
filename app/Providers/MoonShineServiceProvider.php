@@ -26,6 +26,8 @@ use App\MoonShine\Resources\TeacherStats\TeacherStatsResource;
 use App\MoonShine\Resources\ExamStats\ExamStatsResource;
 use App\MoonShine\Resources\Category\CategoryResource;
 use App\MoonShine\Resources\Child\ChildResource;
+use App\MoonShine\Resources\Job\JobResource;
+use App\MoonShine\Resources\JobApplication\JobApplicationResource;
 
 class MoonShineServiceProvider extends ServiceProvider
 {
@@ -54,6 +56,8 @@ class MoonShineServiceProvider extends ServiceProvider
                 ExamStatsResource::class,
                 CategoryResource::class,
                 ChildResource::class,
+                JobResource::class,
+                JobApplicationResource::class,
             ])
             ->pages([
                 ...$core->getConfig()->getPages(),

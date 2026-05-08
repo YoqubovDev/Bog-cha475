@@ -25,7 +25,7 @@ class TeacherResource extends ModelResource
     /**
      * Eager load relationships to avoid N+1 queries
      */
-    protected array $with = ['category', 'group'];
+    protected array $with = ['category'];
 
     /**
      * @return list<class-string<PageContract>>
