@@ -75,7 +75,7 @@
                 </div>
                 <div class="lg:w-1/2 relative">
                     <div class="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl">
-                        <img src="/image/orig.jpeg" alt="Working Environment" class="w-full h-full object-cover">
+                        <img src="/image/sevinch-logo.png" alt="Working Environment" class="w-full h-full object-cover">
                     </div>
                     <div class="absolute -bottom-10 -right-10 w-64 h-64 bg-yellow-400 rounded-full -z-10 opacity-20 blur-2xl"></div>
                     <div class="absolute -top-10 -left-10 w-48 h-48 bg-blue-400 rounded-full -z-10 opacity-20 blur-2xl"></div>

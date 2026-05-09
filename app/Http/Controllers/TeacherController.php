@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Teacher;
-use App\Models\Departments; // <-- Qo'shish shart!
+use App\Models\Departments;
 use App\Models\TeacherStats;
 use Illuminate\Http\Request;
 

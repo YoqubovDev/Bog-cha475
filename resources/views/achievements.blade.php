@@ -45,8 +45,11 @@
                                     </div>
                                 @endif
                                 
+                                <!-- Protection Overlay -->
+                                <div class="absolute inset-0 z-10 select-none" oncontextmenu="return false;"></div>
+                                
                                 <!-- Overlay on hover -->
-                                <div class="absolute inset-0 bg-blue-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center backdrop-blur-[2px]">
+                                <div class="absolute inset-0 bg-blue-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center backdrop-blur-[2px] z-20">
                                     <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-2xl transform scale-50 group-hover:scale-100 transition-transform duration-500">
                                         <i class="fas fa-search-plus text-blue-900 text-2xl"></i>
                                     </div>
@@ -91,6 +94,13 @@
 
             <div class="relative max-w-full max-h-full flex items-center justify-center" @click.stop>
                 <img :src="zoomedImageSrc" class="max-w-full max-h-[85vh] object-contain rounded-[2rem] shadow-[0_0_100px_rgba(255,255,255,0.1)] border-4 border-white/10">
+                <!-- Protection Overlay & Watermark -->
+                <div class="absolute inset-0 z-10 flex items-center justify-center pointer-events-none opacity-25 select-none overflow-hidden">
+                     <div class="text-green-500 text-xl md:text-2xl font-black rotate-[-45deg] whitespace-nowrap uppercase tracking-[1em] opacity-50">
+                         SEVINCH 475 • YUTUQ
+                     </div>
+                </div>
+                <div class="absolute inset-0 z-[15] select-none" oncontextmenu="return false;"></div>
             </div>
         </div>
     </section>

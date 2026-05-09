@@ -32,7 +32,7 @@
                     @forelse($news as $item)
                         <!-- News Card -->
                         <div class="group bg-white rounded-[2.5rem] overflow-hidden border border-slate-100 shadow-[0_15px_40px_rgba(0,0,0,0.03)] transition-all duration-500 hover:-translate-y-4 hover:shadow-[0_30px_60px_rgba(22,17,121,0.12)] flex flex-col h-full">
-                            <div class="aspect-video overflow-hidden relative cursor-zoom-in" @click="zoomedImageSrc = '{{ asset('storage/' . $item->image) }}'; zoomImage = true">
+                             <div class="aspect-video overflow-hidden relative cursor-zoom-in" @click="zoomedImageSrc = '{{ asset('storage/' . $item->image) }}'; zoomImage = true">
                                 @if($item->image)
                                     <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->title }}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                                 @else
@@ -40,7 +40,9 @@
                                         <i class="fas fa-image text-3xl text-slate-300"></i>
                                     </div>
                                 @endif
-                                <div class="absolute top-6 left-6 block bg-white/90 backdrop-blur px-4 py-2 rounded-2xl text-[10px] font-black uppercase tracking-widest text-blue-900 border border-white">Fan & Ta'lim</div>
+                                <!-- Protection Overlay -->
+                                <div class="absolute inset-0 z-10 select-none" oncontextmenu="return false;"></div>
+                                <div class="absolute top-6 left-6 block bg-white/90 backdrop-blur px-4 py-2 rounded-2xl text-[10px] font-black uppercase tracking-widest text-blue-900 border border-white z-20">Fan & Ta'lim</div>
                             </div>
                             <div class="p-10 flex flex-col flex-grow">
                                 <div class="flex items-center gap-3 text-sm text-slate-400 mb-4 font-bold italic">
@@ -88,7 +90,9 @@
                         <img :src="'/storage/' + selectedNews?.image" 
                              class="w-full h-full object-cover" 
                              x-show="selectedNews?.image">
-                        <div class="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent"></div>
+                        <!-- Protection Overlay -->
+                        <div class="absolute inset-0 z-10 select-none" oncontextmenu="return false;"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent z-[15]"></div>
                     </div>
                     <div class="p-10 md:p-16 -mt-20 relative z-10">
                         <div class="inline-flex px-6 py-2 bg-blue-600 text-white rounded-full text-[10px] font-black uppercase tracking-widest shadow-lg mb-8">
@@ -112,7 +116,16 @@
             <button class="absolute top-10 right-10 text-white text-5xl hover:text-yellow-400 transition-all hover:rotate-90">
                 <i class="fas fa-times"></i>
             </button>
-            <img :src="zoomedImageSrc" class="max-w-full max-h-full object-contain rounded-3xl shadow-2xl border-4 border-white/10">
+            <div class="relative group max-w-full max-h-full">
+                <img :src="zoomedImageSrc" class="max-w-full max-h-full object-contain rounded-3xl shadow-2xl border-4 border-white/10">
+                <!-- Protection Overlay & Watermark -->
+                <div class="absolute inset-0 z-10 flex items-center justify-center pointer-events-none opacity-25 select-none overflow-hidden">
+                     <div class="text-green-500 text-xl md:text-2xl font-black rotate-[-45deg] whitespace-nowrap uppercase tracking-[1em] opacity-50">
+                         SEVINCH 475 • SEVINCH 475
+                     </div>
+                </div>
+                <div class="absolute inset-0 z-[15] select-none" oncontextmenu="return false;"></div>
+            </div>
         </div>
     </div>
 </x-layout>
