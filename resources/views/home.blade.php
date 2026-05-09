@@ -160,14 +160,60 @@
     </section>
 
     <!-- Team Section -->
-    <section class="py-20 bg-gray-50">
+    <section class="py-20 bg-gray-50" id="team">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
                 <span class="text-blue-600 font-bold uppercase tracking-widest text-sm mb-4 block">Bizning jamoa</span>
                 <h3 class="text-4xl md:text-5xl font-bold text-blue-900">Sevinch 475 Rahbariyati</h3>
             </div>
 
-            @foreach($categories as $category)
+            <!-- Search Bar -->
+            <div class="max-w-5xl mx-auto mb-16">
+                <form action="{{ route('home') }}#team" method="GET" class="bg-white p-3 rounded-[2.5rem] shadow-[0_20px_50px_rgba(30,64,175,0.1)] flex flex-col md:flex-row gap-3 border border-slate-100">
+                    <div class="flex-1 relative group">
+                        <div class="absolute left-6 top-1/2 -translate-y-1/2 w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center text-blue-500 group-focus-within:bg-blue-600 group-focus-within:text-white transition-all duration-300">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <input type="text" name="search" value="{{ request('search') }}" 
+                               placeholder="Ism yoki familiya bo'yicha qidirish..." 
+                               class="w-full pl-20 pr-6 py-5 bg-transparent border-none focus:ring-0 text-blue-900 font-bold placeholder:text-blue-200 placeholder:font-medium text-lg">
+                    </div>
+                    
+                    <div class="md:w-72 relative group">
+                        <div class="absolute left-6 top-1/2 -translate-y-1/2 w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center text-blue-500 group-focus-within:bg-blue-600 group-focus-within:text-white transition-all duration-300">
+                            <i class="fas fa-th-large"></i>
+                        </div>
+                        <select name="category_id" 
+                                class="w-full pl-20 pr-10 py-5 bg-transparent border-none focus:ring-0 text-blue-900 font-bold appearance-none cursor-pointer text-lg">
+                            <option value="">Barcha bo'limlar</option>
+                            @foreach($all_categories as $cat)
+                                <option value="{{ $cat->id }}" {{ request('category_id') == $cat->id ? 'selected' : '' }}>
+                                    {{ $cat->category }}
+                                </option>
+                            @endforeach
+                        </select>
+                        <div class="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none text-blue-300">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-12 py-5 rounded-[1.8rem] font-black uppercase tracking-[0.2em] transition-all duration-300 shadow-xl shadow-blue-200 hover:shadow-2xl hover:shadow-blue-300 hover:-translate-y-1 active:scale-95 flex items-center justify-center gap-3">
+                        <span>Qidirish</span>
+                        <i class="fas fa-arrow-right text-sm"></i>
+                    </button>
+                </form>
+                
+                @if(request('search') || request('category_id'))
+                    <div class="mt-8 flex items-center justify-center gap-4">
+                        <a href="{{ route('home') }}#team" class="text-red-500 hover:text-red-600 font-bold text-sm uppercase tracking-widest flex items-center gap-2 border-b-2 border-red-100 hover:border-red-500 transition-all pb-1">
+                            <i class="fas fa-times-circle"></i>
+                            Filtrni tozalash
+                        </a>
+                    </div>
+                @endif
+            </div>
+
+            @forelse($categories as $category)
                 <div class="mb-20">
                     <div class="flex items-center gap-4 mb-10">
                         <h4 class="text-2xl font-bold text-blue-600 pr-4 whitespace-nowrap">{{ $category->category }}</h4>
@@ -208,7 +254,18 @@
                         </div>
                     @endif
                 </div>
-            @endforeach
+            @empty
+                <div class="text-center py-20 bg-white rounded-[3rem] shadow-xl border border-slate-100">
+                    <div class="w-20 h-20 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-search text-blue-200 text-3xl"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-blue-900 mb-2">Hech narsa topilmadi</h4>
+                    <p class="text-gray-400 mb-8">Qidiruvingiz bo'yicha hech qanday xodim topilmadi.</p>
+                    <a href="{{ route('home') }}#team" class="inline-flex items-center px-8 py-3 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-100">
+                        Hammasini ko'rish
+                    </a>
+                </div>
+            @endforelse
         </div>
 
         <div id="staffModal" class="fixed inset-0 z-[2000] hidden items-center justify-center bg-slate-950/95 p-6 backdrop-blur-md">
