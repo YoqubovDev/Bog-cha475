@@ -6,9 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
+use App\Traits\DecodesHtmlEntities;
+
 class News extends Model
 {
-    use HasFactory;
+    use HasFactory, DecodesHtmlEntities;
 
     protected $table = 'news';
 
@@ -19,6 +21,12 @@ class News extends Model
         'content',
         'image',
         'published_at',
+    ];
+
+    protected $decodeable = [
+        'title',
+        'content',
+        'excerpt',
     ];
 
     protected $casts = [

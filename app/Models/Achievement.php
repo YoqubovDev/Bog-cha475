@@ -5,9 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use App\Traits\DecodesHtmlEntities;
+
 class Achievement extends Model
 {
-    use HasFactory;
+    use HasFactory, DecodesHtmlEntities;
 
     protected $fillable = [
         'name',
@@ -16,4 +18,6 @@ class Achievement extends Model
         'image',
         'category',
     ];
+
+    protected $decodeable = ['name', 'description', 'category'];
 }

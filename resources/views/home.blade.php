@@ -14,7 +14,7 @@
         <div class="main-slides">
             <!-- Slide 1 -->
             <div class="main-slide">
-                <img src="/image/orig.jpeg" alt="Campus Building" class="w-full h-full object-cover">
+                <img src="/image/image.png" alt="Campus Building" class="w-full h-full object-cover">
                 <div class="absolute inset-0 gradient-overlay flex flex-col items-center justify-center text-white">
                     <p class="text-white mb-4 flex items-center font-light tracking-widest uppercase text-sm">
                         <span class="mr-2"><i class="fas fa-graduation-cap"></i></span>
@@ -28,7 +28,7 @@
 
             <!-- Slide 2 -->
             <div class="main-slide">
-                <img src="/image/photo_1_2025-03-24_00-16-14.jpg" alt="Student Life" class="w-full h-full object-cover">
+                <img src="/image/image copy.png" alt="Student Life" class="w-full h-full object-cover">
                 <div class="absolute inset-0 gradient-overlay flex flex-col items-center justify-center text-white">
                     <p class="text-white mb-4 flex items-center font-light tracking-widest uppercase text-sm">
                         <span class="mr-2"><i class="fas fa-users"></i></span>
@@ -42,7 +42,7 @@
 
             <!-- Slide 3 -->
             <div class="main-slide">
-                <img src="/image/photo_6_2025-03-24_00-16-14.jpg" alt="Research Lab" class="w-full h-full object-cover">
+                <img src="/image/image copy 2.png" alt="Research Lab" class="w-full h-full object-cover">
                 <div class="absolute inset-0 gradient-overlay flex flex-col items-center justify-center text-white">
                     <p class="text-white mb-4 flex items-center font-light tracking-widest uppercase text-sm">
                         <span class="mr-2"><i class="fas fa-microscope"></i></span>
@@ -153,28 +153,29 @@
             </div>
 
             @foreach($categories as $category)
-                @if($category->home->count() > 0)
-                    <div class="mb-20">
-                        <div class="flex items-center gap-4 mb-10">
-                            <h4 class="text-2xl font-bold text-blue-600 pr-4 whitespace-nowrap">{{ $category->category }}</h4>
-                            <div class="h-0.5 bg-blue-100 w-full"></div>
-                        </div>
+                <div class="mb-20">
+                    <div class="flex items-center gap-4 mb-10">
+                        <h4 class="text-2xl font-bold text-blue-600 pr-4 whitespace-nowrap">{{ $category->category }}</h4>
+                        <div class="h-0.5 bg-blue-100 w-full"></div>
+                    </div>
+                    
+                    @if($category->teachers->count() > 0)
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                            @foreach($category->home as $home)
+                            @foreach($category->teachers as $teacher)
                                 <div class="staff-card relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-8 text-center cursor-pointer transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
-                                     data-name="{{ e($home->name) }}"
-                                     data-role="{{ e($home->subject) }}"
-                                     data-bio="{{ e($home->bio) }}"
-                                     data-image="{{ asset('storage/' . $home->image) }}">
+                                     data-name="{{ e($teacher->name) }}"
+                                     data-role="{{ e($teacher->category->category) }}"
+                                     data-bio="{{ e($teacher->bio) }}"
+                                     data-image="{{ asset('storage/' . $teacher->image) }}">
                                     <div class="w-32 h-32 mx-auto mb-6 relative">
                                         <div class="absolute inset-0 border-2 border-blue-200 rounded-full scale-110"></div>
-                                        <img src="{{ asset('storage/' . $home->image) }}"
+                                        <img src="{{ asset('storage/' . $teacher->image) }}"
                                              class="w-full h-full object-cover rounded-full"
-                                             alt="{{ $home->name }}">
+                                             alt="{{ $teacher->name }}">
                                     </div>
-                                    <h4 class="text-xl font-bold text-blue-900 mb-1">{{ $home->name }}</h4>
-                                    <p class="text-blue-500 font-medium text-sm mb-4">{{ $home->subject }}</p>
-                                    <p class="text-gray-500 text-sm line-clamp-3 leading-relaxed">{{ $home->bio }}</p>
+                                    <h4 class="text-xl font-bold text-blue-900 mb-1">{{ $teacher->name }}</h4>
+                                    <p class="text-blue-500 font-medium text-sm mb-4">{{ $teacher->category->category }}</p>
+                                    <p class="text-gray-500 text-sm line-clamp-3 leading-relaxed">{{ $teacher->bio }}</p>
                                     <div class="mt-6 pt-6 border-t border-gray-100 flex justify-center">
                                         <span class="inline-flex items-center text-blue-600 text-xs font-bold uppercase tracking-widest transition-colors hover:text-blue-800">
                                             Batafsil
@@ -184,8 +185,13 @@
                                 </div>
                             @endforeach
                         </div>
-                    </div>
-                @endif
+                    @else
+                        <div class="text-center py-10 bg-gray-50 rounded-3xl border-2 border-dashed border-gray-200">
+                            <i class="fas fa-user-slash text-gray-300 text-4xl mb-4"></i>
+                            <p class="text-gray-400 font-medium italic">Ushbu bo'limda hozircha xodimlar mavjud emas</p>
+                        </div>
+                    @endif
+                </div>
             @endforeach
         </div>
 

@@ -7,8 +7,12 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
+use App\Traits\DecodesHtmlEntities;
+
 class Group extends Model
 {
+    use DecodesHtmlEntities;
+
     protected $fillable = [
         'name',
         'language',
@@ -19,6 +23,8 @@ class Group extends Model
         'teacher_id',
         'assistant_id',
     ];
+
+    protected $decodeable = ['name', 'bio'];
 
     /**
      * Asosiy tarbiyachi

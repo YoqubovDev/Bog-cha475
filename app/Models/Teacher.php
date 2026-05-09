@@ -6,9 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
+use App\Traits\DecodesHtmlEntities;
+
 class Teacher extends Model
 {
+    use DecodesHtmlEntities;
+
     protected $fillable = ['name', 'image', 'bio', 'category_id'];
+
+    protected $decodeable = ['name', 'bio'];
 
     public function category(): BelongsTo
     {

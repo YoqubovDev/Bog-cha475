@@ -6,6 +6,7 @@ namespace App\MoonShine\Resources\News\Pages;
 
 use MoonShine\Laravel\Pages\Crud\IndexPage;
 use MoonShine\Contracts\UI\ComponentContract;
+use MoonShine\UI\Components\Layout\Box;
 use MoonShine\UI\Components\Table\TableBuilder;
 use MoonShine\Contracts\UI\FieldContract;
 use MoonShine\Laravel\QueryTags\QueryTag;
@@ -36,10 +37,7 @@ class NewsIndexPage extends IndexPage
         return [
             ID::make()->sortable(),
             Text::make('Sarlavha', 'title')->required(),
-            Image::make('Rasm', 'image')
-                ->disk('public')
-                ->dir('news')
-                ->nullable(),
+            Image::make('Rasm', 'image')->nullable(),
             Date::make('Sanasi', 'published_at')->format('Y-m-d H:i')->nullable(),
         ];
     }

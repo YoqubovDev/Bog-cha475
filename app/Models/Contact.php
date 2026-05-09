@@ -5,9 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use App\Traits\DecodesHtmlEntities;
+
 class Contact extends Model
 {
-    use HasFactory;
+    use HasFactory, DecodesHtmlEntities;
 
     protected $fillable = [
         'address',
@@ -26,6 +28,15 @@ class Contact extends Model
         'map_link',
         'rating',
         'reviews_count',
+    ];
+
+    protected $decodeable = [
+        'address',
+        'work_time',
+        'lunch_time',
+        'bus',
+        'marshrut',
+        'stop',
     ];
 
     protected $casts = [

@@ -10,7 +10,7 @@ class HomeSliderController extends Controller
 {
     public function index()
     {
-        $categories = \App\Models\Category::with(['home'])->get();
+        $categories = \App\Models\Category::with(['teachers'])->get();
         $qabulrasmis = Reception::latest()->get();
         return view('home', compact('qabulrasmis', 'categories'));
     }

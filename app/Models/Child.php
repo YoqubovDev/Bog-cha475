@@ -4,9 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+use App\Traits\DecodesHtmlEntities;
+
 class Child extends Model
 {
+    use DecodesHtmlEntities;
+
     protected $fillable = ['name', 'image', 'group_id'];
+
+    protected $decodeable = ['name'];
 
     public function group()
     {

@@ -21,35 +21,54 @@
         zoomedImageSrc: ''
     }">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-                @foreach($teachers as $teacher)
-                    <div class="bg-white border border-gray-100 shadow-xl rounded-3xl p-10 text-center transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl cursor-pointer group relative overflow-hidden"
-                         @click="selectedTeacher = {{ json_encode($teacher) }}; showModal = true; showGroup = false">
-                        <div class="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full -mr-16 -mt-16 group-hover:bg-blue-100 transition-colors duration-500"></div>
-                        <div class="w-48 h-48 mx-auto mb-8 relative group/img-container">
-                            <div class="absolute inset-0 bg-blue-600 rounded-full scale-110 opacity-0 group-hover:opacity-20 transition-all duration-500 blur-md"></div>
-                            <img src="{{ asset('storage/' . ($teacher->image ?? 'groups/default.png')) }}"
-                                 class="w-full h-full object-cover rounded-full border-8 border-white shadow-2xl relative z-10 transition-transform duration-500 group-hover:scale-105"
-                                 alt="{{ $teacher->name }}">
-                            <div class="absolute inset-0 z-20 flex items-center justify-center opacity-0 group-hover/img-container:opacity-100 transition-all duration-300">
-                                <div @click.stop="zoomedImageSrc = '{{ asset('storage/' . ($teacher->image ?? 'groups/default.png')) }}'; zoomImage = true" 
-                                     class="p-4 bg-white/90 text-blue-900 rounded-full shadow-2xl hover:scale-110 transition-transform cursor-zoom-in">
-                                    <i class="fas fa-search-plus text-2xl"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <h4 class="text-3xl font-bold text-blue-900 mb-3 group-hover:text-unipix-light transition-colors">{{ $teacher->name }}</h4>
-                        <div class="inline-block px-6 py-1.5 bg-blue-50 text-blue-700 rounded-full text-xs font-black mb-6 uppercase tracking-widest border border-blue-100">{{ $teacher->subject }}</div>
-                        <p class="text-gray-500 text-base line-clamp-2 leading-relaxed mb-8 px-4">{{ $teacher->bio }}</p>
-                        <div class="pt-6 border-t border-gray-100 flex justify-center items-center">
-                            <div class="inline-flex items-center px-8 py-3 bg-blue-50 text-blue-700 rounded-full text-sm font-black uppercase tracking-widest group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 shadow-sm group-hover:shadow-lg">
-                                Batafsil ma'lumot
-                                <i class="fas fa-arrow-right ml-3 text-xs transition-transform duration-300 group-hover:translate-x-2"></i>
-                            </div>
-                        </div>
+            @foreach($categories as $category)
+                <div class="mb-20 last:mb-0">
+                    <div class="flex items-center gap-6 mb-12">
+                        <h3 class="text-3xl font-bold text-blue-900 whitespace-nowrap">{{ $category->category }}</h3>
+                        <div class="h-1 bg-gradient-to-r from-blue-600 to-transparent w-full rounded-full opacity-20"></div>
                     </div>
-                @endforeach
-            </div>
+
+                    @if($category->teachers->count() > 0)
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                            @foreach($category->teachers as $teacher)
+                                <div class="bg-white border border-gray-100 shadow-xl rounded-3xl p-10 text-center transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl cursor-pointer group relative overflow-hidden"
+                                     @click="selectedTeacher = {{ json_encode($teacher) }}; showModal = true; showGroup = false">
+                                    <div class="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full -mr-16 -mt-16 group-hover:bg-blue-100 transition-colors duration-500"></div>
+                                    <div class="w-48 h-48 mx-auto mb-8 relative group/img-container">
+                                        <div class="absolute inset-0 bg-blue-600 rounded-full scale-110 opacity-0 group-hover:opacity-20 transition-all duration-500 blur-md"></div>
+                                        <img src="{{ asset('storage/' . ($teacher->image ?? 'groups/default.png')) }}"
+                                             class="w-full h-full object-cover rounded-full border-8 border-white shadow-2xl relative z-10 transition-transform duration-500 group-hover:scale-105"
+                                             alt="{{ $teacher->name }}">
+                                        <div class="absolute inset-0 z-20 flex items-center justify-center opacity-0 group-hover/img-container:opacity-100 transition-all duration-300">
+                                            <div @click.stop="zoomedImageSrc = '{{ asset('storage/' . ($teacher->image ?? 'groups/default.png')) }}'; zoomImage = true" 
+                                                 class="p-4 bg-white/90 text-blue-900 rounded-full shadow-2xl hover:scale-110 transition-transform cursor-zoom-in">
+                                                <i class="fas fa-search-plus text-2xl"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h4 class="text-3xl font-bold text-blue-900 mb-3 group-hover:text-unipix-light transition-colors">{{ $teacher->name }}</h4>
+                                    <div class="inline-block px-6 py-1.5 bg-blue-50 text-blue-700 rounded-full text-xs font-black mb-6 uppercase tracking-widest border border-blue-100">{{ $teacher->category->category }}</div>
+                                    <p class="text-gray-500 text-base line-clamp-2 leading-relaxed mb-8 px-4">{{ $teacher->bio }}</p>
+                                    <div class="pt-6 border-t border-gray-100 flex justify-center items-center">
+                                        <div class="inline-flex items-center px-8 py-3 bg-blue-50 text-blue-700 rounded-full text-sm font-black uppercase tracking-widest group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 shadow-sm group-hover:shadow-lg">
+                                            Batafsil ma'lumot
+                                            <i class="fas fa-arrow-right ml-3 text-xs transition-transform duration-300 group-hover:translate-x-2"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    @else
+                        <div class="text-center py-16 bg-blue-50/30 rounded-[3rem] border-4 border-dashed border-blue-100">
+                            <div class="w-20 h-20 bg-white rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-xl">
+                                <i class="fas fa-users-slash text-blue-200 text-3xl"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-blue-900 mb-2">Hozircha xodimlar mavjud emas</h4>
+                            <p class="text-gray-400">Tez kunda ushbu bo'limga yangi xodimlar qo'shiladi.</p>
+                        </div>
+                    @endif
+                </div>
+            @endforeach
         </div>
 
     <div x-show="showModal" 
@@ -86,7 +105,7 @@
                                 </div>
                             </div>
                             <h3 class="text-3xl font-bold text-blue-900 text-center leading-tight mb-2" x-text="selectedTeacher?.name"></h3>
-                            <div class="px-4 py-1.5 bg-blue-600 text-white rounded-full text-[10px] font-black uppercase tracking-widest shadow-lg mb-8" x-text="selectedTeacher?.subject"></div>
+                            <div class="px-4 py-1.5 bg-blue-600 text-white rounded-full text-[10px] font-black uppercase tracking-widest shadow-lg mb-8" x-text="selectedTeacher?.category?.category"></div>
                             <template x-if="selectedTeacher?.group">
                                 <button @click="showGroup = !showGroup" 
                                         class="flex items-center justify-center w-full px-8 py-4 bg-yellow-400 text-blue-900 rounded-2xl font-black uppercase tracking-widest shadow-xl hover:bg-yellow-500 hover:-translate-y-1 transition-all duration-300">
