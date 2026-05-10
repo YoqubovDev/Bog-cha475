@@ -40,7 +40,7 @@ class TeacherDetailPage extends DetailPage
             // // Biriktirilgan guruh
             // BelongsTo::make('Guruh', 'group', 'name', GroupResource::class),
 
-            Textarea::make('Bio', 'bio')->raw(),
+            Textarea::make('Bio', 'bio')->unescape(),
             Image::make('Rasm', 'image'),
         ];
     }

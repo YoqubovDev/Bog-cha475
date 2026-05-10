@@ -43,7 +43,7 @@ class TeacherFormPage extends FormPage
                 Text::make('Ism', 'name')->required(),
 
                 Textarea::make('Bio', 'bio')
-                    ->raw()
+                    ->unescape()
                     ->customAttributes([
                         'rows' => 5
                     ]),
