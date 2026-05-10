@@ -224,9 +224,9 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                             @foreach($category->teachers as $teacher)
                                 <div class="staff-card relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-8 text-center cursor-pointer transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
-                                     data-name="{{ e($teacher->name) }}"
-                                     data-role="{{ e($teacher->category->category) }}"
-                                     data-bio="{{ e($teacher->bio) }}"
+                                     data-name="{{ $teacher->name }}"
+                                     data-role="{{ $teacher->category->category }}"
+                                     data-bio="{{ $teacher->bio }}"
                                      data-image="{{ asset('storage/' . $teacher->image) }}">
                                     <div class="w-32 h-32 mx-auto mb-6 relative">
                                         <div class="absolute inset-0 border-2 border-blue-200 rounded-full scale-110"></div>

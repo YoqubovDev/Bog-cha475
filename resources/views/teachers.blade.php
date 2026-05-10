@@ -32,7 +32,7 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
                             @foreach($category->teachers as $teacher)
                                 <div class="bg-white border border-gray-100 shadow-xl rounded-3xl p-10 text-center transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl cursor-pointer group relative overflow-hidden"
-                                     @click="selectedTeacher = {{ json_encode($teacher) }}; showModal = true; showGroup = false">
+                                     @click="selectedTeacher = {!! json_encode($teacher) !!}; showModal = true; showGroup = false">
                                     <div class="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full -mr-16 -mt-16 group-hover:bg-blue-100 transition-colors duration-500"></div>
                                     <div class="w-48 h-48 mx-auto mb-8 relative group/img-container">
                                         <div class="absolute inset-0 bg-blue-600 rounded-full scale-110 opacity-0 group-hover:opacity-20 transition-all duration-500 blur-md"></div>
