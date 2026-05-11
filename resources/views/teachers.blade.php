@@ -32,7 +32,7 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
                             @foreach($category->teachers as $teacher)
                                 <div class="bg-white border border-gray-100 shadow-xl rounded-3xl p-10 text-center transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl cursor-pointer group relative overflow-hidden"
-                                     @click="selectedTeacher = {!! json_encode($teacher) !!}; showModal = true; showGroup = false">
+                                     @click="selectedTeacher = {{ json_encode($teacher) }}; showModal = true; showGroup = false">
                                     <div class="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full -mr-16 -mt-16 group-hover:bg-blue-100 transition-colors duration-500"></div>
                                     <div class="w-48 h-48 mx-auto mb-8 relative group/img-container">
                                         <div class="absolute inset-0 bg-blue-600 rounded-full scale-110 opacity-0 group-hover:opacity-20 transition-all duration-500 blur-md"></div>
@@ -177,17 +177,17 @@
                                         <div class="flex items-center justify-between">
                                             <h4 class="text-2xl font-black text-blue-900 uppercase tracking-widest">
                                                 <i class="fas fa-shapes text-yellow-400 mr-3"></i>
-                                                <span x-text="selectedTeacher.group.name"></span>
+                                                <span x-text="selectedTeacher?.group?.name"></span>
                                             </h4>
                                         </div>
                                         <div class="bg-blue-50 p-6 rounded-3xl border border-blue-100 flex items-center">
                                             <div class="w-20 h-20 rounded-2xl overflow-hidden shadow-xl mr-6 border-2 border-white">
-                                                <img :src="selectedTeacher.group.assistant?.image ? '{{ asset('storage') }}/' + selectedTeacher.group.assistant.image : 'https://ui-avatars.com/api/?name=Assistant'" 
+                                                <img :src="selectedTeacher?.group?.assistant?.image ? '{{ asset('storage') }}/' + selectedTeacher.group.assistant.image : 'https://ui-avatars.com/api/?name=Assistant'" 
                                                      class="w-full h-full object-cover">
                                             </div>
                                             <div>
                                                 <p class="text-[10px] font-black uppercase text-blue-400 tracking-widest mb-1">Yordamchi</p>
-                                                <p class="text-xl font-bold text-blue-900" x-text="selectedTeacher.group.assistant?.name || 'Mavjud emas'"></p>
+                                                <p class="text-xl font-bold text-blue-900" x-text="selectedTeacher?.group?.assistant?.name || 'Mavjud emas'"></p>
                                             </div>
                                         </div>
                                         <div>
@@ -196,7 +196,7 @@
                                                 Tarbiyalanuvchilar (Bolalar)
                                             </h5>
                                             <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 max-h-[300px] overflow-y-auto pr-4 custom-scrollbar">
-                                                <template x-for="student in selectedTeacher.group.students" :key="student.id">
+                                                <template x-for="student in selectedTeacher?.group?.students || []" :key="student.id">
                                                     <div class="group/child cursor-pointer" @click="zoomedImageSrc = student.image ? '{{ asset('storage') }}/' + student.image : 'https://ui-avatars.com/api/?name=' + student.name; zoomImage = true">
                                                         <div class="relative aspect-square rounded-2xl overflow-hidden shadow-lg border-4 border-white transition-all group-hover/child:-translate-y-1">
                                                             <img :src="student.image ? '{{ asset('storage') }}/' + student.image : 'https://ui-avatars.com/api/?name=' + student.name" 

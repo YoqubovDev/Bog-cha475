@@ -16,7 +16,7 @@
             <div class="container mx-auto px-4 relative z-10">
                 <h1 class="text-5xl md:text-6xl font-serif font-bold mb-6 italic">Yangiliklar & Tadbirlar</h1>
                 <div class="w-24 h-1.5 bg-yellow-400 mx-auto mb-8 rounded-full"></div>
-                <p class="text-xl text-blue-100 max-w-2xl mx-auto font-light leading-relaxed italic">Maktabimiz hayotidagi eng muhim voqealar va innovatsiyalar bilan tanishing</p>
+                <p class="text-xl text-blue-100 max-w-2xl mx-auto font-light leading-relaxed italic">Bog'chamiz hayotidagi eng muhim voqealar va innovatsiyalar bilan tanishing</p>
             </div>
         </section>
 

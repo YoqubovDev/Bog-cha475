@@ -19,6 +19,9 @@ class HomeSliderController extends Controller
                     $query->where('name', 'like', '%' . $search . '%');
                 }
             },
+            'teachers.group',
+            'teachers.group.assistant',
+            'teachers.group.students',
             'home' => function($query) use ($search) {
                 if ($search) {
                     $query->where('name', 'like', '%' . $search . '%');

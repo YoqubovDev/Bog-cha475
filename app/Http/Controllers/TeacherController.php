@@ -21,6 +21,9 @@ class TeacherController extends Controller
                 }
             }, 
             'teachers.category',
+            'teachers.group',
+            'teachers.group.assistant',
+            'teachers.group.students',
             'home' => function($query) use ($search) {
                 if ($search) {
                     $query->where('name', 'like', '%' . $search . '%');
@@ -28,6 +31,7 @@ class TeacherController extends Controller
             },
             'home.category'
         ])
+        ->whereIn('category', ['Tarbiyalovchi', 'Yordam tarbiyalovchi'])
         ->when($categoryId, function($query) use ($categoryId) {
             $query->where('id', $categoryId);
         })
@@ -46,7 +50,7 @@ class TeacherController extends Controller
             });
         }
 
-        $all_categories = \App\Models\Category::all();
+        $all_categories = \App\Models\Category::whereIn('category', ['Tarbiyalovchi', 'Yordam tarbiyalovchi'])->get();
         $departments = Departments::all();
         $stats = TeacherStats::all() ?? (object) [
             'asosiy' => 0,

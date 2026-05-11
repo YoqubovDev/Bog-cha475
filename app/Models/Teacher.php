@@ -21,6 +21,11 @@ class Teacher extends Model
         return $this->belongsTo(Category::class, 'category_id');
     }
 
+    public function group(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(Group::class, 'teacher_id');
+    }
+
     public function primaryGroups(): HasMany
     {
         return $this->hasMany(Group::class, 'teacher_id');
