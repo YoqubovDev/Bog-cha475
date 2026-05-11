@@ -37,8 +37,8 @@ class HomeSliderFormPage extends FormPage
                 ID::make(),
                 BelongsTo::make('Kategoriya', 'category', 'category', CategoryResource::class)
                     ->required(),
-                Text::make('Ism', 'name')->required(),
-                Textarea::make('Bio', 'bio')->nullable(),
+                Text::make('Ism', 'name')->required()->unescape(),
+                Textarea::make('Bio', 'bio')->nullable()->unescape(),
                 Image::make('Rasm', 'image')
                     ->dir('homeslider') // storage/app/public/homeslider
                     ->disk('public')

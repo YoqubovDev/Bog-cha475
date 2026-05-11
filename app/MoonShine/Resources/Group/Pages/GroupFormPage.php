@@ -39,7 +39,7 @@ class GroupFormPage extends FormPage
         return [
             Box::make([
                 ID::make()->sortable(),
-                Text::make('Guruh Nomi', 'name')->required(),
+                Text::make('Guruh Nomi', 'name')->required()->unescape(),
                 Select::make('Til', 'language')
                     ->options([
                         'uz-icon' => 'O‘zbek tili',
@@ -53,7 +53,7 @@ class GroupFormPage extends FormPage
                 BelongsTo::make('Yordamchi tarbiyachi', 'assistant', 'name', TeacherResource::class)
                     ->nullable(),
                 \MoonShine\Laravel\Fields\Relationships\HasMany::make('Tarbiylanuvchilar', 'children', null, \App\MoonShine\Resources\Child\ChildResource::class),
-                Textarea::make('Guruh BIO', 'bio')->required(),
+                Textarea::make('Guruh BIO', 'bio')->required()->unescape(),
                 Number::make('Natija foizi', 'result_percentage')->nullable(),
                 Image::make('Guruh Rasmi ', 'image')->dir('groups')->removable()->required()
                     ->allowedExtensions(['jpg', 'jpeg', 'png', 'webp']),

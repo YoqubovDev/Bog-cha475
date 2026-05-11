@@ -40,7 +40,7 @@ class TeacherFormPage extends FormPage
                 BelongsTo::make('Kategoriya', 'category', 'category', CategoryResource::class)
                     ->required(),
 
-                Text::make('Ism', 'name')->required(),
+                Text::make('Ism', 'name')->required()->unescape(),
 
                 Textarea::make('Bio', 'bio')
                     ->unescape()
