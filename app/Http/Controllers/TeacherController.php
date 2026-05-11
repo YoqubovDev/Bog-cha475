@@ -14,17 +14,32 @@ class TeacherController extends Controller
         $search = $request->input('search');
         $categoryId = $request->input('category_id');
 
-        $categories = \App\Models\Category::with(['teachers' => function($query) use ($search) {
-            if ($search) {
-                $query->where('name', 'like', '%' . $search . '%');
-            }
-        }, 'teachers.category'])
+        $categories = \App\Models\Category::with([
+            'teachers' => function($query) use ($search) {
+                if ($search) {
+                    $query->where('name', 'like', '%' . $search . '%');
+                }
+            }, 
+            'teachers.category',
+            'home' => function($query) use ($search) {
+                if ($search) {
+                    $query->where('name', 'like', '%' . $search . '%');
+                }
+            },
+            'home.category'
+        ])
         ->when($categoryId, function($query) use ($categoryId) {
             $query->where('id', $categoryId);
         })
         ->get();
 
-        // If searching, only show categories that have matching teachers
+        // Merge teachers and home sliders (leadership) into the teachers relation
+        foreach ($categories as $category) {
+            $combined = $category->teachers->concat($category->home);
+            $category->setRelation('teachers', $combined);
+        }
+
+        // If searching, only show categories that have matching teachers (now including merged leadership)
         if ($search || $categoryId) {
             $categories = $categories->filter(function($category) {
                 return $category->teachers->count() > 0;

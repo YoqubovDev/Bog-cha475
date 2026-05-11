@@ -13,17 +13,29 @@ class HomeSliderController extends Controller
         $search = $request->input('search');
         $categoryId = $request->input('category_id');
 
-        $categories = \App\Models\Category::with(['teachers' => function($query) use ($search) {
-            if ($search) {
-                $query->where('name', 'like', '%' . $search . '%');
+        $categories = \App\Models\Category::with([
+            'teachers' => function($query) use ($search) {
+                if ($search) {
+                    $query->where('name', 'like', '%' . $search . '%');
+                }
+            },
+            'home' => function($query) use ($search) {
+                if ($search) {
+                    $query->where('name', 'like', '%' . $search . '%');
+                }
             }
-        }])
+        ])
         ->when($categoryId, function($query) use ($categoryId) {
             $query->where('id', $categoryId);
         })
         ->get();
 
-        // If searching, only show categories that have matching teachers
+        foreach ($categories as $category) {
+            $combined = $category->teachers->concat($category->home);
+            $category->setRelation('teachers', $combined);
+        }
+
+        // If searching, only show categories that have matching teachers (including leadership)
         if ($search || $categoryId) {
             $categories = $categories->filter(function($category) {
                 return $category->teachers->count() > 0;
