@@ -21,5 +21,10 @@ class Job extends Model
         'is_active',
     ];
 
-    protected $decodeable = ['title', 'description', 'location'];
+    protected $decodeable = ['title', 'description', 'location', 'salary'];
+
+    public function getSalaryAttribute($value)
+    {
+        return htmlspecialchars_decode((string) $value, ENT_QUOTES);
+    }
 }

@@ -32,9 +32,9 @@ class JobIndexPage extends IndexPage
     {
         return [
             ID::make()->sortable(),
-            Text::make('Sarlavha', 'title'),
+            Text::make('Sarlavha', 'title')->unescape(),
             Text::make('Turi', 'type'),
-            Text::make('Maosh', 'salary'),
+            Text::make('Maosh', 'salary')->unescape(),
             Switcher::make('Faol', 'is_active'),
         ];
     }

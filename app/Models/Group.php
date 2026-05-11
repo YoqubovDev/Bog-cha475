@@ -65,4 +65,9 @@ class Group extends Model
     {
         return $this->students();
     }
+
+    public function getNameAttribute($value)
+    {
+        return htmlspecialchars_decode((string) $value, ENT_QUOTES);
+    }
 }

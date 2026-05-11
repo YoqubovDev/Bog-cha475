@@ -18,4 +18,9 @@ class Child extends Model
     {
         return $this->belongsTo(Group::class);
     }
+
+    public function getNameAttribute($value)
+    {
+        return htmlspecialchars_decode((string) $value, ENT_QUOTES);
+    }
 }

@@ -33,14 +33,14 @@ class JobFormPage extends FormPage
         return [
             Box::make([
                 ID::make(),
-                Text::make('Sarlavha', 'title')->required(),
+                Text::make('Sarlavha', 'title')->required()->unescape(),
                 Select::make('Turi', 'type')->options([
                     'Full-time' => 'Full-time',
                     'Part-time' => 'Part-time',
                 ])->default('Full-time'),
-                Text::make('Maosh', 'salary'),
-                Text::make('Manzil', 'location'),
-                Textarea::make('Tavsif', 'description')->required(),
+                Text::make('Maosh', 'salary')->unescape(),
+                Text::make('Manzil', 'location')->unescape(),
+                Textarea::make('Tavsif', 'description')->required()->unescape(),
                 Switcher::make('Faol', 'is_active')->default(true),
             ]),
         ];
