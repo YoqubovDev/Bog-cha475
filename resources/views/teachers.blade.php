@@ -7,7 +7,7 @@
             <div class="absolute bottom-0 right-0 w-96 h-96 bg-unipix-light rounded-full translate-x-1/2 translate-y-1/2 blur-3xl"></div>
         </div>
         <div class="container mx-auto px-4 text-center relative z-10">
-            <h2 class="text-4xl md:text-6xl font-serif font-bold text-white mb-6 uppercase tracking-wider drop-shadow-md">Bizning Ustozlarimiz</h2>
+                <h1 class="text-5xl md:text-6xl font-serif font-bold mb-6 italic">Bizning Tarbiyachilar</h1>
             <div class="w-40 h-1.5 bg-yellow-400 mx-auto mb-8 rounded-full shadow-lg"></div>
             <p class="text-blue-100 max-w-2xl mx-auto text-xl leading-relaxed font-light">Sevinch 475 bolalar bog'chasining tajribali va mehribon pedagoglari bilan tanishing.</p>
         </div>
