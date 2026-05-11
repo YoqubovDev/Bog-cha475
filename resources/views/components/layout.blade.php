@@ -45,6 +45,7 @@
         body { font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
         .hero-text-shadow { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); }
         .gradient-overlay { background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(22,17,121,0.7) 100%); }
+        [x-cloak] { display: none !important; }
 
         /* Modern Image Protection CSS */
         img {

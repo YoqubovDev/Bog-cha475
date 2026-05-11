@@ -31,7 +31,7 @@ class HomeSliderController extends Controller
         ->get();
 
         foreach ($categories as $category) {
-            $combined = $category->teachers->concat($category->home);
+            $combined = $category->teachers->concat($category->home)->unique('name');
             $category->setRelation('teachers', $combined);
         }
 

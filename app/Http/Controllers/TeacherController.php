@@ -33,9 +33,9 @@ class TeacherController extends Controller
         })
         ->get();
 
-        // Merge teachers and home sliders (leadership) into the teachers relation
+        // Merge teachers and home sliders (leadership) into the teachers relation and ensure uniqueness
         foreach ($categories as $category) {
-            $combined = $category->teachers->concat($category->home);
+            $combined = $category->teachers->concat($category->home)->unique('name');
             $category->setRelation('teachers', $combined);
         }
 
