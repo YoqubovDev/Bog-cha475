@@ -28,6 +28,7 @@ class HomeSliderController extends Controller
                 }
             }
         ])
+        ->whereNotIn('category', ['Tarbiyalovchi', 'Yordam tarbiyalovchi'])
         ->when($categoryId, function($query) use ($categoryId) {
             $query->where('id', $categoryId);
         })
