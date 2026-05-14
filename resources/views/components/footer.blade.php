@@ -5,7 +5,7 @@
             <div class="space-y-6">
                 <div class="flex items-center gap-4">
                     <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center p-2 shadow-xl">
-                        <img src="/image/sevinch-logo.png" alt="Sevinch Logo" class="w-full h-full object-contain">
+                        <img src="{{ asset('image/sevinch-logo.png') }}" alt="Sevinch Logo" class="w-full h-full object-contain">
                     </div>
                     <div>
                         <h3 class="text-2xl font-bold text-white">Sevinch</h3>

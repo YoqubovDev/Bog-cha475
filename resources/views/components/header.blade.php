@@ -5,7 +5,7 @@
             <!-- Logo Section -->
             <a href="{{ route('home') }}" class="flex items-center gap-3 md:gap-4 group">
                 <div class="w-12 h-12 md:w-16 md:h-16 bg-white rounded-full flex items-center justify-center p-1.5 shadow-lg group-hover:scale-105 transition-transform duration-300">
-                    <img src="/image/sevinch-logo.png" alt="Sevinch Logo" class="w-full h-full object-contain">
+                    <img src="{{ asset('image/sevinch-logo.png') }}" alt="Sevinch Logo" class="w-full h-full object-contain">
                 </div>
                 <div class="flex flex-col">
                     <span class="text-white font-bold text-lg md:text-2xl leading-none mb-1">Sevinch</span>

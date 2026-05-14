@@ -41,7 +41,7 @@
                                     </div>
                                 @endif
                                 <!-- Protection Overlay -->
-                                <div class="absolute inset-0 z-10 select-none" oncontextmenu="return false;"></div>
+                                <div class="absolute inset-0 z-10 select-none" ></div>
                                 <div class="absolute top-6 left-6 block bg-white/90 backdrop-blur px-4 py-2 rounded-2xl text-[10px] font-black uppercase tracking-widest text-blue-900 border border-white z-20">Fan & Ta'lim</div>
                             </div>
                             <div class="p-10 flex flex-col flex-grow">
@@ -87,11 +87,11 @@
 
                 <div class="overflow-y-auto">
                     <div class="aspect-video w-full relative">
-                        <img :src="'/storage/' + selectedNews?.image" 
+                        <img :src="'{{ asset('storage') }}/' + selectedNews?.image" 
                              class="w-full h-full object-cover" 
                              x-show="selectedNews?.image">
                         <!-- Protection Overlay -->
-                        <div class="absolute inset-0 z-10 select-none" oncontextmenu="return false;"></div>
+                        <div class="absolute inset-0 z-10 select-none" ></div>
                         <div class="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent z-[15]"></div>
                     </div>
                     <div class="p-10 md:p-16 -mt-20 relative z-10">
@@ -124,7 +124,7 @@
                          SEVINCH 475 • SEVINCH 475
                      </div>
                 </div>
-                <div class="absolute inset-0 z-[15] select-none" oncontextmenu="return false;"></div>
+                <div class="absolute inset-0 z-[15] select-none" ></div>
             </div>
         </div>
     </div>

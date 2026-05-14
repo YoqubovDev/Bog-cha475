@@ -40,7 +40,7 @@
                                              class="w-full h-full object-cover rounded-full border-8 border-white shadow-2xl relative z-10 transition-transform duration-500 group-hover:scale-105"
                                              alt="{{ $teacher->name }}">
                                         <!-- Transparent Protection Overlay -->
-                                        <div class="absolute inset-0 z-[15] rounded-full select-none" oncontextmenu="return false;"></div>
+                                        <div class="absolute inset-0 z-[15] rounded-full select-none" ></div>
                                         <div class="absolute inset-0 z-20 flex items-center justify-center opacity-0 group-hover/img-container:opacity-100 transition-all duration-300">
                                             <div @click.stop="zoomedImageSrc = '{{ asset('storage/' . ($teacher->image ?? 'groups/default.png')) }}'; zoomImage = true" 
                                                  class="p-4 bg-white/90 text-blue-900 rounded-full shadow-2xl hover:scale-110 transition-transform cursor-zoom-in">
@@ -103,7 +103,7 @@
                                      @click="zoomedImageSrc = selectedTeacher?.image ? '{{ asset('storage') }}/' + selectedTeacher.image : ''; zoomImage = true"
                                      alt="Profile">
                                 <!-- Transparent Protection Overlay -->
-                                <div class="absolute inset-0 z-10 select-none" oncontextmenu="return false;"></div>
+                                <div class="absolute inset-0 z-10 select-none" ></div>
                                 <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
                                     <i class="fas fa-search-plus text-white text-4xl"></i>
                                 </div>
@@ -202,7 +202,7 @@
                                                             <img :src="student.image ? '{{ asset('storage') }}/' + student.image : 'https://ui-avatars.com/api/?name=' + student.name" 
                                                                  class="w-full h-full object-cover">
                                                             <!-- Transparent Protection Overlay -->
-                                                            <div class="absolute inset-0 z-10 select-none" oncontextmenu="return false;"></div>
+                                                            <div class="absolute inset-0 z-10 select-none" ></div>
                                                             <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/child:opacity-100 transition-opacity flex items-center justify-center">
                                                                 <i class="fas fa-search-plus text-white"></i>
                                                             </div>
@@ -241,7 +241,7 @@
                          </div>
                     </div>
                     <!-- Full-size transparent click blocker -->
-                    <div class="absolute inset-0 z-[15] select-none" oncontextmenu="return false;"></div>
+                    <div class="absolute inset-0 z-[15] select-none" ></div>
                 </div>
             </div>
     </section>

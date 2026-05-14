@@ -16,7 +16,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <link rel="icon" href="/image/sevinch-logo.png" type="image/png">
+    <link rel="icon" href="{{ asset('image/sevinch-logo.png') }}" type="image/png">
 
     <script>
         tailwind.config = {
@@ -79,7 +79,7 @@
     
     {{ $extra_head ?? '' }}
 </head>
-<body class="bg-gray-50 flex flex-col min-h-screen screenshot-protected" oncopy="return false" oncut="return false">
+<body class="bg-gray-50 flex flex-col min-h-screen screenshot-protected">
 
     <x-header />
 
@@ -90,6 +90,7 @@
     <x-footer />
 
     <!-- Anti-Copy & Anti-Screenshot Protection Scripts -->
+    <!--
     <script>
         // Disable Right Click with a message (optional)
         document.addEventListener('contextmenu', function(e) {
@@ -157,6 +158,7 @@
             console.log(element);
         })();
     </script>
+    -->
 
     {{ $extra_scripts ?? '' }}
 </body>

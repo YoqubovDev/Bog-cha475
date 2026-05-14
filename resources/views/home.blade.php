@@ -14,8 +14,8 @@
         <div class="main-slides">
             <!-- Slide 1 -->
             <div class="main-slide relative">
-                <img src="/image/image.png" alt="Campus Building" class="w-full h-full object-cover">
-                <div class="absolute inset-0 z-10 select-none" oncontextmenu="return false;"></div>
+                <img src="{{ asset('image/image.png') }}" alt="Campus Building" class="w-full h-full object-cover">
+                <div class="absolute inset-0 z-10 select-none" ></div>
                 <div class="absolute inset-0 gradient-overlay flex flex-col items-center justify-center text-white">
                     <p class="text-white mb-4 flex items-center font-light tracking-widest uppercase text-sm">
                         <span class="mr-2"><i class="fas fa-graduation-cap"></i></span>
@@ -29,8 +29,8 @@
 
             <!-- Slide 2 -->
             <div class="main-slide relative">
-                <img src="/image/image copy.png" alt="Student Life" class="w-full h-full object-cover">
-                <div class="absolute inset-0 z-10 select-none" oncontextmenu="return false;"></div>
+                <img src="{{ asset('image/image copy.png') }}" alt="Student Life" class="w-full h-full object-cover">
+                <div class="absolute inset-0 z-10 select-none" ></div>
                 <div class="absolute inset-0 gradient-overlay flex flex-col items-center justify-center text-white">
                     <p class="text-white mb-4 flex items-center font-light tracking-widest uppercase text-sm">
                         <span class="mr-2"><i class="fas fa-users"></i></span>
@@ -44,8 +44,8 @@
 
             <!-- Slide 3 -->
             <div class="main-slide relative">
-                <img src="/image/image copy 2.png" alt="Research Lab" class="w-full h-full object-cover">
-                <div class="absolute inset-0 z-10 select-none" oncontextmenu="return false;"></div>
+                <img src="{{ asset('image/image copy 2.png') }}" alt="Research Lab" class="w-full h-full object-cover">
+                <div class="absolute inset-0 z-10 select-none" ></div>
                 <div class="absolute inset-0 gradient-overlay flex flex-col items-center justify-center text-white">
                     <p class="text-white mb-4 flex items-center font-light tracking-widest uppercase text-sm">
                         <span class="mr-2"><i class="fas fa-microscope"></i></span>
@@ -89,7 +89,7 @@
                                  alt="Qabul rasmi"
                                  class="w-full h-full object-cover hover:scale-110 transition-transform duration-500 rounded-2xl">
                             <!-- Protection Overlay -->
-                            <div class="absolute inset-0 z-10 select-none" oncontextmenu="return false;"></div>
+                            <div class="absolute inset-0 z-10 select-none" ></div>
                         </div>
                     </div>
                 @endforeach
@@ -111,7 +111,7 @@
                              SEVINCH 475 • SEVINCH 475 • SEVINCH 475
                          </div>
                     </div>
-                    <div class="absolute inset-0 z-[15] select-none" oncontextmenu="return false;"></div>
+                    <div class="absolute inset-0 z-[15] select-none" ></div>
                 </div>
             </div>
         </div>
@@ -148,8 +148,8 @@
                     </div>
                 </div>
                 <div class="lg:w-1/2 relative">
-                    <img src="/image/orig.jpeg" alt="About Image" class="rounded-3xl shadow-2xl">
-                    <div class="absolute inset-0 z-10 select-none" oncontextmenu="return false;"></div>
+                    <img src="{{ asset('image/orig.jpeg') }}" alt="About Image" class="rounded-3xl shadow-2xl">
+                    <div class="absolute inset-0 z-10 select-none" ></div>
                     <div class="absolute -bottom-6 -left-6 bg-yellow-400 p-8 rounded-3xl shadow-xl hidden md:block">
                         <p class="text-blue-900 font-black text-3xl">2k+</p>
                         <p class="text-blue-900 font-bold uppercase tracking-widest text-xs">Bitiruvchilar</p>
@@ -233,7 +233,7 @@
                                         <img src="{{ asset('storage/' . $teacher->image) }}"
                                              class="w-full h-full object-cover rounded-full"
                                              alt="{{ $teacher->name }}">
-                                        <div class="absolute inset-0 z-10 select-none rounded-full" oncontextmenu="return false;"></div>
+                                        <div class="absolute inset-0 z-10 select-none rounded-full" ></div>
                                     </div>
                                     <h4 class="text-xl font-bold text-blue-900 mb-1">{{ $teacher->name }}</h4>
                                     <p class="text-blue-500 font-medium text-sm mb-4">{{ $teacher->category->category }}</p>
@@ -278,7 +278,7 @@
                     <div class="md:w-1/3 bg-gradient-to-b from-blue-50 to-white p-10 text-center sticky top-0 md:relative">
                         <div class="relative mx-auto mb-8 h-64 w-64 md:h-72 md:w-72 overflow-hidden rounded-full border-8 border-white shadow-2xl">
                             <img id="staffModalImage" src="" alt="Staff" class="h-full w-full object-cover">
-                            <div class="absolute inset-0 z-10 select-none rounded-full" oncontextmenu="return false;"></div>
+                            <div class="absolute inset-0 z-10 select-none rounded-full" ></div>
                         </div>
                         <h3 id="staffModalName" class="text-3xl font-black text-blue-900 leading-tight mb-3"></h3>
                         <p id="staffModalRole" class="mx-auto inline-flex rounded-full bg-blue-600 px-6 py-2 text-xs uppercase tracking-[0.2em] text-white shadow-lg font-bold"></p>

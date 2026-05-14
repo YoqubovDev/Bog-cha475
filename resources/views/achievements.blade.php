@@ -46,7 +46,7 @@
                                 @endif
                                 
                                 <!-- Protection Overlay -->
-                                <div class="absolute inset-0 z-10 select-none" oncontextmenu="return false;"></div>
+                                <div class="absolute inset-0 z-10 select-none" ></div>
                                 
                                 <!-- Overlay on hover -->
                                 <div class="absolute inset-0 bg-blue-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center backdrop-blur-[2px] z-20">
@@ -100,7 +100,7 @@
                          SEVINCH 475 • YUTUQ
                      </div>
                 </div>
-                <div class="absolute inset-0 z-[15] select-none" oncontextmenu="return false;"></div>
+                <div class="absolute inset-0 z-[15] select-none" ></div>
             </div>
         </div>
     </section>

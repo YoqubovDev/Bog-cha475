@@ -20,9 +20,9 @@
                 <!-- Example Photo Card 1 -->
                 <div class="group bg-white rounded-[2.5rem] overflow-hidden shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl border border-slate-50">
                     <div class="aspect-square overflow-hidden relative">
-                        <img src="/student-with-gold-medal-mathematics-olympiad.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Galereya rasm">
+                        <img src="{{ asset('student-with-gold-medal-mathematics-olympiad.jpg') }}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Galereya rasm">
                         <!-- Protection Overlay -->
-                        <div class="absolute inset-0 z-10 select-none" oncontextmenu="return false;"></div>
+                        <div class="absolute inset-0 z-10 select-none" ></div>
                         <div class="absolute inset-0 bg-blue-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-sm z-20">
                             <i class="fas fa-search-plus text-white text-4xl transform scale-50 group-hover:scale-100 transition-transform"></i>
                         </div>
