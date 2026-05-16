@@ -104,8 +104,13 @@ final class MoonShineLayout extends AppLayout
         // $colorManager->primary('#00000');
     }
 
-    protected function footer(): string
+    protected function getFooterCopyright(): string
     {
         return "";
+    }
+
+    protected function getFooterMenu(): array
+    {
+        return [];
     }
 }
