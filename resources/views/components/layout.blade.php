@@ -90,7 +90,6 @@
     <x-footer />
 
     <!-- Anti-Copy & Anti-Screenshot Protection Scripts -->
-    <!--
     <script>
         // Disable Right Click with a message (optional)
         document.addEventListener('contextmenu', function(e) {
@@ -158,7 +157,6 @@
             console.log(element);
         })();
     </script>
-    -->
 
     {{ $extra_scripts ?? '' }}
 </body>

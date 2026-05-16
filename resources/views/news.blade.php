@@ -105,7 +105,6 @@
             </div>
         </div>
 
-        <!-- Image Zoom Modal -->
         <div x-show="zoomImage" 
              class="fixed inset-0 z-[3000] bg-slate-950/98 backdrop-blur-2xl p-8 flex items-center justify-center"
              x-cloak
@@ -113,14 +112,14 @@
              x-transition:enter="transition opacity duration-300"
              x-transition:leave="transition opacity duration-200"
              @keydown.escape.window="zoomImage = false">
-            <button class="absolute top-10 right-10 text-white text-5xl hover:text-yellow-400 transition-all hover:rotate-90">
+            <button class="absolute top-10 right-10 text-white text-5xl hover:text-yellow-400 transition-all hover:rotate-90 z-[3001]">
                 <i class="fas fa-times"></i>
             </button>
-            <div class="relative group max-w-full max-h-full">
-                <img :src="zoomedImageSrc" class="max-w-full max-h-full object-contain rounded-3xl shadow-2xl border-4 border-white/10">
+            <div class="relative group max-w-full max-h-full flex items-center justify-center" @click.stop>
+                <img :src="zoomedImageSrc" class="max-w-full max-h-[85vh] object-contain rounded-3xl shadow-2xl border-4 border-white/10">
                 <!-- Protection Overlay & Watermark -->
-                <div class="absolute inset-0 z-10 flex items-center justify-center pointer-events-none opacity-25 select-none overflow-hidden">
-                     <div class="text-green-500 text-xl md:text-2xl font-black rotate-[-45deg] whitespace-nowrap uppercase tracking-[1em] opacity-50">
+                <div class="absolute inset-0 z-10 flex items-center justify-center pointer-events-none opacity-40 select-none overflow-hidden">
+                     <div class="text-green-500 text-2xl md:text-4xl font-black rotate-[-45deg] whitespace-nowrap uppercase tracking-[1em] opacity-60">
                          SEVINCH 475 • SEVINCH 475
                      </div>
                 </div>

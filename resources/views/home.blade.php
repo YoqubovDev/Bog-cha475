@@ -1,7 +1,4 @@
 <x-layout>
-    <div class="bg-yellow-400 text-blue-900 py-2 text-center font-bold uppercase tracking-widest text-sm z-[3000] relative">
-        
-    </div>
     <x-slot:extra_head>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
         <style>
@@ -101,16 +98,17 @@
 
         <!-- Modal -->
         <div x-show="showModal"
-             class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-[2000]"
-             x-transition>
-            <div class="relative max-w-4xl w-full px-4">
+             class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-[2000] p-4"
+             x-transition
+             @click.away="showModal = false">
+            <div class="relative max-w-5xl w-full flex flex-col items-center">
                 <button @click="showModal = false"
-                        class="absolute -top-12 right-4 text-white text-4xl font-bold hover:text-red-500 z-50">&times;</button>
-                <div class="relative group">
-                    <img :src="imageUrl" class="w-full h-auto rounded-xl border-4 border-white shadow-2xl">
+                        class="absolute -top-12 right-0 text-white text-4xl font-bold hover:text-red-500 transition-colors z-[2001]">&times;</button>
+                <div class="relative group w-full flex justify-center">
+                    <img :src="imageUrl" class="max-w-full max-h-[85vh] w-auto h-auto rounded-xl border-4 border-white shadow-2xl object-contain">
                     <!-- Transparent Protection Overlay & Watermark -->
-                    <div class="absolute inset-0 z-10 flex items-center justify-center pointer-events-none opacity-20 select-none overflow-hidden">
-                         <div class="text-green-500 text-xl md:text-2xl font-black rotate-[-45deg] whitespace-nowrap uppercase tracking-[1em] opacity-50">
+                    <div class="absolute inset-0 z-10 flex items-center justify-center pointer-events-none opacity-40 select-none overflow-hidden">
+                         <div class="text-green-500 text-2xl md:text-4xl font-black rotate-[-45deg] whitespace-nowrap uppercase tracking-[1em] opacity-60">
                              SEVINCH 475 • SEVINCH 475 • SEVINCH 475
                          </div>
                     </div>

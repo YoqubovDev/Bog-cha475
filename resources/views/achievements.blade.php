@@ -79,7 +79,6 @@
             @endif
         </div>
 
-        <!-- Image Zoom Modal -->
         <div x-show="zoomImage" 
              class="fixed inset-0 z-[3000] bg-slate-950/98 backdrop-blur-2xl p-8 flex items-center justify-center"
              x-cloak
@@ -95,9 +94,9 @@
             <div class="relative max-w-full max-h-full flex items-center justify-center" @click.stop>
                 <img :src="zoomedImageSrc" class="max-w-full max-h-[85vh] object-contain rounded-[2rem] shadow-[0_0_100px_rgba(255,255,255,0.1)] border-4 border-white/10">
                 <!-- Protection Overlay & Watermark -->
-                <div class="absolute inset-0 z-10 flex items-center justify-center pointer-events-none opacity-25 select-none overflow-hidden">
-                     <div class="text-green-500 text-xl md:text-2xl font-black rotate-[-45deg] whitespace-nowrap uppercase tracking-[1em] opacity-50">
-                         SEVINCH 475 • YUTUQ
+                <div class="absolute inset-0 z-10 flex items-center justify-center pointer-events-none opacity-40 select-none overflow-hidden">
+                     <div class="text-green-500 text-2xl md:text-4xl font-black rotate-[-45deg] whitespace-nowrap uppercase tracking-[1em] opacity-60">
+                          SEVINCH 475 • YUTUQ
                      </div>
                 </div>
                 <div class="absolute inset-0 z-[15] select-none" ></div>

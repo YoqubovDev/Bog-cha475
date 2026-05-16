@@ -1,7 +1,4 @@
 <x-layout>
-    <div class="bg-yellow-400 text-blue-900 py-2 text-center font-bold uppercase tracking-widest text-sm z-[3000] relative">
-        
-    </div>
     <x-slot:title>Tarbiyachilar - Sevinch 475</x-slot:title>
     
     <section class="py-20 bg-gradient-to-br from-unipix-dark via-blue-900 to-unipix-blue relative overflow-hidden">
@@ -231,15 +228,16 @@
                  x-transition:enter="transition ease-out duration-300"
                  x-transition:enter-start="opacity-0 scale-110"
                  x-transition:enter-end="opacity-100 scale-100"
-                 @click="zoomImage = false">
-                <button class="absolute top-10 right-10 text-white hover:text-yellow-400 transition-colors">
+                 @click="zoomImage = false"
+                 @keydown.escape.window="zoomImage = false">
+                <button class="absolute top-10 right-10 text-white hover:text-yellow-400 transition-colors z-[3001]">
                     <i class="fas fa-times text-5xl"></i>
                 </button>
-                <div class="relative group max-w-full max-h-full">
-                    <img :src="zoomedImageSrc" class="max-w-full max-h-full rounded-2xl shadow-[0_0_100px_rgba(255,255,255,0.1)]">
+                <div class="relative group max-w-full max-h-full flex items-center justify-center" @click.stop>
+                    <img :src="zoomedImageSrc" class="max-w-full max-h-[85vh] object-contain rounded-2xl shadow-[0_0_100px_rgba(255,255,255,0.1)]">
                     <!-- Transparent Protection Overlay & Watermark -->
-                    <div class="absolute inset-0 z-10 flex items-center justify-center pointer-events-none opacity-20 select-none overflow-hidden">
-                         <div class="text-green-500 text-xl md:text-2xl font-black rotate-[-45deg] whitespace-nowrap uppercase tracking-[1em] opacity-50">
+                    <div class="absolute inset-0 z-10 flex items-center justify-center pointer-events-none opacity-40 select-none overflow-hidden">
+                         <div class="text-green-500 text-2xl md:text-4xl font-black rotate-[-45deg] whitespace-nowrap uppercase tracking-[1em] opacity-60">
                              SEVINCH 475 • SEVINCH 475 • SEVINCH 475
                          </div>
                     </div>

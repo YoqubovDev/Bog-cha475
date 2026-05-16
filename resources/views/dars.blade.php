@@ -96,10 +96,19 @@
              @click="zoomImage = false"
              x-transition:enter="transition opacity duration-300"
              x-transition:leave="transition opacity duration-200">
-            <button class="absolute top-10 right-10 text-white text-5xl hover:text-yellow-400 transition-all hover:rotate-90">
+            <button class="absolute top-10 right-10 text-white text-5xl hover:text-yellow-400 transition-all hover:rotate-90 z-[3001]">
                 <i class="fas fa-times"></i>
             </button>
-            <img :src="zoomedImageSrc" class="max-w-full max-h-full object-contain rounded-3xl shadow-[0_0_100px_rgba(255,255,255,0.1)]">
+            <div class="relative max-w-full max-h-full flex items-center justify-center" @click.stop>
+                <img :src="zoomedImageSrc" class="max-w-full max-h-[85vh] object-contain rounded-3xl shadow-[0_0_100px_rgba(255,255,255,0.1)]">
+                <!-- Protection Overlay & Watermark -->
+                <div class="absolute inset-0 z-10 flex items-center justify-center pointer-events-none opacity-40 select-none overflow-hidden">
+                     <div class="text-green-500 text-2xl md:text-4xl font-black rotate-[-45deg] whitespace-nowrap uppercase tracking-[1em] opacity-60">
+                         SEVINCH 475 • SEVINCH 475
+                     </div>
+                </div>
+                <div class="absolute inset-0 z-[15] select-none" ></div>
+            </div>
         </div>
     </section>
 </x-layout>
