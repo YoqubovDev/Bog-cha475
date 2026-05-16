@@ -71,21 +71,32 @@
 
         <!-- News Detail Modal -->
         <div x-show="showModal" 
-             class="fixed inset-0 z-[2000] flex items-center justify-center p-4 md:p-8 bg-slate-900/90 backdrop-blur-xl"
+             class="fixed inset-0 z-[2000] flex items-center justify-center p-4 md:p-8"
              x-cloak
              x-transition:enter="transition ease-out duration-300"
-             x-transition:enter-start="opacity-0 scale-95"
-             x-transition:enter-end="opacity-100 scale-100"
+             x-transition:enter-start="opacity-0"
+             x-transition:enter-end="opacity-100"
              x-transition:leave="transition ease-in duration-200"
-             x-transition:leave-start="opacity-100 scale-100"
-             x-transition:leave-end="opacity-0 scale-95"
+             x-transition:leave-start="opacity-100"
+             x-transition:leave-end="opacity-0"
              @keydown.escape.window="showModal = false">
-            <div class="bg-white w-full max-w-4xl max-h-[90vh] rounded-[3rem] overflow-hidden shadow-2xl flex flex-col relative" @click.away="showModal = false">
-                <button @click="showModal = false" class="absolute top-6 right-6 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-slate-100 text-slate-600 hover:bg-red-50 hover:text-red-600 transition-all hover:rotate-90">
-                    <i class="fas fa-times text-xl"></i>
+            
+            <!-- Modal Backdrop -->
+            <div class="absolute inset-0 bg-slate-900/90 backdrop-blur-xl" @click="showModal = false"></div>
+
+            <!-- Modal Content -->
+            <div class="bg-white w-full max-w-4xl max-h-[90vh] rounded-[3rem] overflow-hidden shadow-2xl flex flex-col relative z-10" 
+                 x-transition:enter="transition ease-out duration-300"
+                 x-transition:enter-start="scale-95 translate-y-8"
+                 x-transition:enter-end="scale-100 translate-y-0">
+                
+                <!-- Close Button -->
+                <button @click="showModal = false" 
+                        class="absolute top-8 right-8 z-[100] w-12 h-12 flex items-center justify-center rounded-2xl bg-white shadow-2xl text-slate-600 hover:text-red-600 transition-all hover:rotate-90 group">
+                    <i class="fas fa-times text-2xl group-hover:scale-110 transition-transform"></i>
                 </button>
 
-                <div class="overflow-y-auto">
+                <div class="overflow-y-auto custom-scrollbar">
                     <div class="aspect-video w-full relative">
                         <img :src="'{{ asset('storage') }}/' + selectedNews?.image" 
                              class="w-full h-full object-cover" 
@@ -94,7 +105,7 @@
                         <div class="absolute inset-0 z-10 select-none" ></div>
                         <div class="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent z-[15]"></div>
                     </div>
-                    <div class="p-10 md:p-16 -mt-20 relative z-10">
+                    <div class="p-10 md:p-16 -mt-20 relative z-20 bg-white rounded-t-[3rem]">
                         <div class="inline-flex px-6 py-2 bg-blue-600 text-white rounded-full text-[10px] font-black uppercase tracking-widest shadow-lg mb-8">
                            <i class="fas fa-calendar-day mr-2"></i> <span x-text="selectedNews ? new Date(selectedNews.created_at).toLocaleDateString() : ''"></span>
                         </div>
