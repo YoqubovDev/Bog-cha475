@@ -31,7 +31,11 @@ class TeacherController extends Controller
             },
             'home.category'
         ])
-        ->whereIn('category', ['Tarbiyalovchi', 'Yordam tarbiyalovchi'])
+        ->where(function($query) {
+            $query->where('category', 'like', 'Tarbiyalovchi%')
+                  ->orWhere('category', 'like', 'Yordam%')
+                  ->orWhere('category', 'like', '%tarbiyalovchi%');
+        })
         ->when($categoryId, function($query) use ($categoryId) {
             $query->where('id', $categoryId);
         })
@@ -50,7 +54,11 @@ class TeacherController extends Controller
             });
         }
 
-        $all_categories = \App\Models\Category::whereIn('category', ['Tarbiyalovchi', 'Yordam tarbiyalovchi'])->get();
+        $all_categories = \App\Models\Category::where(function($query) {
+            $query->where('category', 'like', 'Tarbiyalovchi%')
+                  ->orWhere('category', 'like', 'Yordam%')
+                  ->orWhere('category', 'like', '%tarbiyalovchi%');
+        })->get();
         $departments = Departments::all();
         $stats = TeacherStats::all() ?? (object) [
             'asosiy' => 0,

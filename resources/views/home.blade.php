@@ -1,4 +1,7 @@
 <x-layout>
+    <div class="bg-yellow-400 text-blue-900 py-2 text-center font-bold uppercase tracking-widest text-sm z-[3000] relative">
+        
+    </div>
     <x-slot:extra_head>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
         <style>

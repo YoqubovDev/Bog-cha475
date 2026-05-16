@@ -1,4 +1,7 @@
 <x-layout>
+    <div class="bg-yellow-400 text-blue-900 py-2 text-center font-bold uppercase tracking-widest text-sm z-[3000] relative">
+        
+    </div>
     <x-slot:title>Tarbiyachilar - Sevinch 475</x-slot:title>
     
     <section class="py-20 bg-gradient-to-br from-unipix-dark via-blue-900 to-unipix-blue relative overflow-hidden">
