@@ -18,7 +18,7 @@
                 <ul class="flex gap-6 xl:gap-10">
                     <li><a href="{{ route('home') }}" class="text-white hover:text-yellow-400 font-semibold transition-all relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-yellow-400 hover:after:w-full after:transition-all">Bosh sahifa</a></li>
                     <li><a href="{{ route('news') }}" class="text-white hover:text-yellow-400 font-semibold transition-all relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-yellow-400 hover:after:w-full after:transition-all">Yangiliklar</a></li>
-                    <li><a href="{{ route('teachers') }}" class="text-white hover:text-yellow-400 font-semibold transition-all relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-yellow-400 hover:after:w-full after:transition-all">Tarbiyachilar</a></li>
+                    <!-- <li><a href="{{ route('teachers') }}" class="text-white hover:text-yellow-400 font-semibold transition-all relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-yellow-400 hover:after:w-full after:transition-all">Tarbiyachilar</a></li> -->
                     <li><a href="{{ route('subject') }}" class="text-white hover:text-yellow-400 font-semibold transition-all relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-yellow-400 hover:after:w-full after:transition-all">Guruhlar</a></li>
                     <li><a href="{{ route('achievements') }}" class="text-white hover:text-yellow-400 font-semibold transition-all relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-yellow-400 hover:after:w-full after:transition-all">Yutuqlar</a></li>
                     <li><a href="{{ route('contact') }}" class="text-white hover:text-yellow-400 font-semibold transition-all relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-yellow-400 hover:after:w-full after:transition-all">Bog'lanish</a></li>
@@ -44,7 +44,7 @@
             <ul class="flex flex-col gap-4">
                 <li><a href="{{ route('home') }}" class="mobile-nav-link">Bosh sahifa</a></li>
                 <li><a href="{{ route('news') }}" class="mobile-nav-link">Yangiliklar</a></li>
-                <li><a href="{{ route('teachers') }}" class="mobile-nav-link">Tarbiyachilar</a></li>
+                <!-- <li><a href="{{ route('teachers') }}" class="mobile-nav-link">Tarbiyachilar</a></li> -->
                 <li><a href="{{ route('subject') }}" class="mobile-nav-link">Guruhlar</a></li>
                 <li><a href="{{ route('achievements') }}" class="mobile-nav-link">Yutuqlar</a></li>
                 <li><a href="{{ route('contact') }}" class="mobile-nav-link">Bog'lanish</a></li>

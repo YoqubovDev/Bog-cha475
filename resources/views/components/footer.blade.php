@@ -31,7 +31,7 @@
                 <ul class="space-y-4">
                     <li><a href="{{ route('home') }}" class="text-blue-100/70 hover:text-yellow-400 transition-colors flex items-center gap-2 group"><i class="fas fa-chevron-right text-[10px] opacity-0 group-hover:opacity-100 transition-all"></i> Bosh sahifa</a></li>
                     <li><a href="{{ route('news') }}" class="text-blue-100/70 hover:text-yellow-400 transition-colors flex items-center gap-2 group"><i class="fas fa-chevron-right text-[10px] opacity-0 group-hover:opacity-100 transition-all"></i> Yangiliklar</a></li>
-                    <li><a href="{{ route('teachers') }}" class="text-blue-100/70 hover:text-yellow-400 transition-colors flex items-center gap-2 group"><i class="fas fa-chevron-right text-[10px] opacity-0 group-hover:opacity-100 transition-all"></i> Tarbiyachilar</a></li>
+                    <!-- <li><a href="{{ route('teachers') }}" class="text-blue-100/70 hover:text-yellow-400 transition-colors flex items-center gap-2 group"><i class="fas fa-chevron-right text-[10px] opacity-0 group-hover:opacity-100 transition-all"></i> Tarbiyachilar</a></li> -->
                     <li><a href="{{ route('contact') }}" class="text-blue-100/70 hover:text-yellow-400 transition-colors flex items-center gap-2 group"><i class="fas fa-chevron-right text-[10px] opacity-0 group-hover:opacity-100 transition-all"></i> Bog'lanish</a></li>
                 </ul>
             </div>
